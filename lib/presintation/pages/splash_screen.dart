@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:e_commerce_app/presintation/pages/login_page.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {

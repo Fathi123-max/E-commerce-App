@@ -23,93 +23,82 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.green,
-              Colors.white,
-            ],
-          ),
-        ),
-        child: AnimationLimiter(
-          child: AnimationConfiguration.staggeredList(
-            position: 0,
-            delay: const Duration(milliseconds: 100),
-            child: SlideAnimation(
-              duration: const Duration(milliseconds: 2500),
-              curve: Curves.fastLinearToSlowEaseIn,
-              horizontalOffset: 30,
-              verticalOffset: 300.0,
-              child: FadeInAnimation(
-                duration: const Duration(milliseconds: 3000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                child: Column(
+      body: AnimationLimiter(
+        child: AnimationConfiguration.staggeredList(
+          position: 0,
+          delay: const Duration(milliseconds: 100),
+          child: SlideAnimation(
+            duration: const Duration(milliseconds: 2500),
+            curve: Curves.fastLinearToSlowEaseIn,
+            horizontalOffset: 30,
+            verticalOffset: 300.0,
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search for products',
+                      icon: Icon(Icons.search),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(16),
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search for products',
-                          icon: Icon(Icons.search),
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Text('Categories:'),
-                        DropdownButton<String>(
-                          value: _selectedCategory,
-                          items: _categories.map((category) {
-                            return DropdownMenuItem<String>(
-                              value: category,
-                              child: Text(category),
-                            );
-                          }).toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedCategory = value!;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: GridView.builder(
-                          itemCount: 20,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 16,
-                            mainAxisSpacing: 16,
-                          ),
-                          itemBuilder: (context, index) {
-                            return Expanded(
-                              child: ProductWidget(
-                                imageUrl:
-                                    '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
-                                price: 49.99,
-                                brand: '',
-                                name: 'Product 1',
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                    const Text('Categories:'),
+                    DropdownButton<String>(
+                      value: _selectedCategory,
+                      items: _categories.map((category) {
+                        return DropdownMenuItem<String>(
+                          value: category,
+                          child: Text(category),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedCategory = value!;
+                        });
+                      },
                     ),
                   ],
                 ),
-              ),
+                Expanded(
+                    child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 20,
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        Expanded(
+                          child: ProductWidget(
+                            imageUrl:
+                                '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                            price: 49.99,
+                            brand: '',
+                            name: 'Product 1',
+                          ),
+                        ),
+                        Expanded(
+                          child: ProductWidget(
+                            imageUrl:
+                                '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                            price: 39.99,
+                            brand: '',
+                            name: 'Product 2',
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                )),
+              ],
             ),
           ),
         ),

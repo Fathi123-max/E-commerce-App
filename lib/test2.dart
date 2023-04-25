@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class ProfilePage8 extends StatefulWidget {
   @override
@@ -13,41 +14,39 @@ class _ProfilePage8State extends State<ProfilePage8> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: tabs.length,
-      child: Scaffold(
-        extendBody: true,
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          automaticallyImplyLeading: false,
-          title: TabBar(
-            indicatorColor: Colors.white,
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.white,
-            tabs: tabs.map((String tab) {
-              return Tab(
-                text: tab,
-              );
-            }).toList(),
-          ),
-        ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.green,
-                Colors.white,
-              ],
+    return AnimationLimiter(
+      child: AnimationConfiguration.staggeredList(
+        position: 0,
+        delay: const Duration(milliseconds: 100),
+        child: SlideAnimation(
+          duration: const Duration(milliseconds: 2500),
+          curve: Curves.fastLinearToSlowEaseIn,
+          horizontalOffset: 30,
+          verticalOffset: 300.0,
+          child: DefaultTabController(
+            length: tabs.length,
+            child: Scaffold(
+              extendBody: true,
+              appBar: AppBar(
+                automaticallyImplyLeading: false,
+                title: TabBar(
+                  indicatorColor: Colors.green,
+                  labelColor: Colors.black,
+                  tabs: tabs.map((String tab) {
+                    return Tab(
+                      text: tab,
+                    );
+                  }).toList(),
+                ),
+              ),
+              body: TabBarView(
+                children: [
+                  _buildProfile(),
+                  _buildAddresses(),
+                  _buildPayment(),
+                ],
+              ),
             ),
-          ),
-          child: TabBarView(
-            children: [
-              _buildProfile(),
-              _buildAddresses(),
-              _buildPayment(),
-            ],
           ),
         ),
       ),

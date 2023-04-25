@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:e_commerce_app/presintation/pages/login_page.dart';
+import 'package:e_commerce_app/presintation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -53,7 +53,7 @@ class _SplashScreen2State extends State<SplashScreen2>
 
     Timer(const Duration(seconds: 4), () {
       setState(() {
-        Navigator.pushReplacement(context, PageTransition(const LoginPage()));
+        Navigator.pushReplacement(context, PageTransition(const HomePage()));
       });
     });
   }
@@ -83,7 +83,7 @@ class _SplashScreen2State extends State<SplashScreen2>
                 duration: const Duration(milliseconds: 1000),
                 opacity: _textOpacity,
                 child: Text(
-                  'OneMart',
+                  'One Mart',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

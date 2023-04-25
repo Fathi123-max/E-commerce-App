@@ -22,65 +22,53 @@ class _CartPageState extends State<CartPage> {
           ? const Center(
               child: Text('Your cart is empty'),
             )
-          : Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.green,
-                    Colors.white,
-                  ],
-                ),
-              ),
-              child: AnimationLimiter(
-                child: ListView.builder(
-                  itemCount: _items.length,
-                  itemBuilder: (BuildContext c, int i) {
-                    return AnimationConfiguration.staggeredList(
-                        position: i,
-                        delay: const Duration(milliseconds: 100),
-                        child: SlideAnimation(
-                            duration: const Duration(milliseconds: 2500),
-                            curve: Curves.fastLinearToSlowEaseIn,
-                            horizontalOffset: 30,
-                            verticalOffset: 300.0,
-                            child: Dismissible(
-                              key: ValueKey(_items[i]),
-                              onDismissed: (direction) {
-                                setState(() {
-                                  _items.removeAt(i);
-                                });
-                              },
-                              background: Container(
-                                alignment: Alignment.centerRight,
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 20),
-                                color: Colors.red,
-                                child: const Icon(
-                                  Icons.delete,
-                                  color: Colors.white,
-                                ),
+          : AnimationLimiter(
+              child: ListView.builder(
+                itemCount: _items.length,
+                itemBuilder: (BuildContext c, int i) {
+                  return AnimationConfiguration.staggeredList(
+                      position: i,
+                      delay: const Duration(milliseconds: 100),
+                      child: SlideAnimation(
+                          duration: const Duration(milliseconds: 2500),
+                          curve: Curves.fastLinearToSlowEaseIn,
+                          horizontalOffset: 30,
+                          verticalOffset: 300.0,
+                          child: Dismissible(
+                            key: ValueKey(_items[i]),
+                            onDismissed: (direction) {
+                              setState(() {
+                                _items.removeAt(i);
+                              });
+                            },
+                            background: Container(
+                              alignment: Alignment.centerRight,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              color: Colors.red,
+                              child: const Icon(
+                                Icons.delete,
+                                color: Colors.white,
                               ),
-                              child: ListTile(
-                                leading: Image.network(
-                                  'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
-                                  height: 60,
-                                ),
-                                title: Text(_items[i]),
-                                subtitle: const Text('\$50'),
-                                trailing: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _items.removeAt(i);
-                                    });
-                                  },
-                                  icon: const Icon(Icons.delete),
-                                ),
+                            ),
+                            child: ListTile(
+                              leading: Image.network(
+                                'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                height: 60,
                               ),
-                            )));
-                  },
-                ),
+                              title: Text(_items[i]),
+                              subtitle: const Text('\$50'),
+                              trailing: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _items.removeAt(i);
+                                  });
+                                },
+                                icon: const Icon(Icons.delete),
+                              ),
+                            ),
+                          )));
+                },
               ),
             ),
       bottomNavigationBar: _items.isEmpty

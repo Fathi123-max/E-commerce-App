@@ -22,17 +22,18 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Row(
+    return Container(
+      decoration: BoxDecoration(
+        // border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
             children: [
               Container(
-                width: 30.0,
+                width: 50.0,
                 height: 30.0,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
@@ -51,13 +52,19 @@ class _CounterWidgetState extends State<CounterWidget> {
                 width: 50.0,
                 height: 30.0,
                 alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    top: BorderSide(color: Colors.grey),
+                    bottom: BorderSide(color: Colors.grey),
+                  ),
+                ),
                 child: Text(
                   '$_count',
                   style: const TextStyle(fontSize: 18.0),
                 ),
               ),
               Container(
-                width: 30.0,
+                width: 50.0,
                 height: 30.0,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
@@ -74,67 +81,53 @@ class _CounterWidgetState extends State<CounterWidget> {
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 10.0),
-        Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    child: const Text('Witghlist'),
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.yellow,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                  ),
+          const SizedBox(height: 10.0),
+          ElevatedButton(
+            child: const Text('waitless'),
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              primary: Colors.yellow,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0),
                 ),
-              ],
+              ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    child: const Text('Add to Cart'),
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                  ),
+          ),
+          const SizedBox(height: 10.0),
+          ElevatedButton(
+            child: const Text('Buy Now'),
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              primary: Colors.green,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0),
                 ),
-              ],
+              ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                    child: Text('Buy Now'),
-                  ),
+          ),
+          const SizedBox(height: 10.0),
+          ElevatedButton(
+            child: const Text('Add to Cart'),
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              primary: Colors.blue,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0),
                 ),
-              ],
+              ),
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

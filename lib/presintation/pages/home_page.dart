@@ -6,8 +6,6 @@ import 'package:e_commerce_app/test2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
-import 'custom_title.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -46,87 +44,57 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Colors.white, Colors.green],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        title: Text('One Mart'),
+        centerTitle: true,
       ),
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.green,
-          elevation: 0,
-          title: const CustomTitle(
-            titleText: 'One Mart',
-            fontSize: 32.0,
-            gradient: LinearGradient(
-              colors: [Colors.green, Colors.white],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.green,
-                Colors.white,
-              ],
-            ),
-          ),
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 100),
-            child: pages[selectedIndex],
-          ),
-        ),
-        bottomNavigationBar: SnakeNavigationBar.color(
-          // height: 80,
-          behaviour: snakeBarStyle,
-          snakeShape: snakeShape,
-          shape: bottomBarShape,
-          padding: padding,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 100),
+        child: pages[selectedIndex],
+      ),
+      bottomNavigationBar: SnakeNavigationBar.color(
+        // height: 80,
+        behaviour: snakeBarStyle,
+        snakeShape: snakeShape,
+        shape: bottomBarShape,
+        padding: padding,
 
-          ///configuration for SnakeNavigationBar.color
-          snakeViewColor: selectedColor,
-          selectedItemColor:
-              snakeShape == SnakeShape.circle ? selectedColor : null,
-          unselectedItemColor: unselectedColor,
-          shadowColor: Colors.grey,
+        ///configuration for SnakeNavigationBar.color
+        snakeViewColor: selectedColor,
+        selectedItemColor:
+            snakeShape == SnakeShape.circle ? selectedColor : null,
+        unselectedItemColor: unselectedColor,
+        shadowColor: Colors.grey,
 
-          ///configuration for SnakeNavigationBar.gradient
-          // snakeViewGradient: selectedGradient,
-          // selectedItemGradient: snakeShape == SnakeShape.indicator ? selectedGradient : null,
-          // unselectedItemGradient: unselectedGradient,
+        ///configuration for SnakeNavigationBar.gradient
+        // snakeViewGradient: selectedGradient,
+        // selectedItemGradient: snakeShape == SnakeShape.indicator ? selectedGradient : null,
+        // unselectedItemGradient: unselectedGradient,
 
-          showUnselectedLabels: showUnselectedLabels,
-          showSelectedLabels: showSelectedLabels,
+        showUnselectedLabels: showUnselectedLabels,
+        showSelectedLabels: showSelectedLabels,
 
-          currentIndex: _selectedItemPosition,
-          onTap: (index) {
-            setState(() {
-              _selectedItemPosition = index;
-              selectedIndex = index;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.category_rounded), label: 'Catogries'),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.card_travel_rounded), label: 'Cart'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'perofile')
-          ],
-          selectedLabelStyle: const TextStyle(fontSize: 14),
-          unselectedLabelStyle: const TextStyle(fontSize: 10),
-        ),
+        currentIndex: _selectedItemPosition,
+        onTap: (index) {
+          setState(() {
+            _selectedItemPosition = index;
+            selectedIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.category_rounded), label: 'Catogries'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.card_travel_rounded), label: 'Cart'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'perofile')
+        ],
+        selectedLabelStyle: const TextStyle(fontSize: 14),
+        unselectedLabelStyle: const TextStyle(fontSize: 10),
       ),
     );
   }
