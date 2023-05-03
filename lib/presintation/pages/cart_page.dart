@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+import '../../constatnt/const_color.dart';
+
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
 
@@ -24,6 +26,7 @@ class _CartPageState extends State<CartPage> {
             )
           : AnimationLimiter(
               child: ListView.builder(
+                padding: const EdgeInsets.only(left: 10),
                 itemCount: _items.length,
                 itemBuilder: (BuildContext c, int i) {
                   return AnimationConfiguration.staggeredList(
@@ -46,9 +49,9 @@ class _CartPageState extends State<CartPage> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               color: Colors.red,
-                              child: const Icon(
+                              child: Icon(
                                 Icons.delete,
-                                color: Colors.white,
+                                color: AppColor.appwhiteColor,
                               ),
                             ),
                             child: ListTile(
@@ -76,7 +79,7 @@ class _CartPageState extends State<CartPage> {
           : Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColor.appwhiteColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -100,6 +101,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
           Container(
             height: 100,
             child: ListView.builder(
+              padding: const EdgeInsets.only(left: 10),
               scrollDirection: Axis.horizontal,
               itemCount: orderHistory.length,
               itemBuilder: (BuildContext context, int index) {
@@ -129,7 +131,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                             ? FontWeight.bold
                             : FontWeight.normal,
                         color: index == selectedIndex
-                            ? Colors.white
+                            ? AppColor.appwhiteColor
                             : Colors.black,
                       ),
                     ),

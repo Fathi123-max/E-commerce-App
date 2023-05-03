@@ -2,6 +2,8 @@ import 'package:e_commerce_app/presintation/pages/catogrys_%20product_page.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+import 'constatnt/const_color.dart';
+
 class ListOfCatogry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class ListOfCatogry extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: _w / 20),
                   height: _w / 3,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColor.appwhiteColor,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(20),
                     ),
@@ -74,8 +76,8 @@ class ListOfCatogry extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: AppColor.appwhiteColor,
                 fontWeight: FontWeight.bold,
               ),
             ),

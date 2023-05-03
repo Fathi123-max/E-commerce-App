@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import 'constatnt/const_color.dart';
+
 class ProductPhotos extends StatefulWidget {
   final List<String> images;
 
@@ -24,7 +26,6 @@ class _ProductPhotosState extends State<ProductPhotos> {
     List<Widget> photos = widget.images
         .map((image) => Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
                   image: NetworkImage(image),
                   fit: BoxFit.cover,
@@ -56,7 +57,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
         .toList();
 
     return Container(
-      color: Colors.white,
+      color: AppColor.appwhiteColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

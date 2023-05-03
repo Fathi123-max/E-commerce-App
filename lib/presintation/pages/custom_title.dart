@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constatnt/const_color.dart';
+
 class CustomTitle extends StatelessWidget {
   final String titleText;
   final double fontSize;
@@ -39,7 +41,7 @@ class CustomTitle extends StatelessWidget {
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.bold,
             fontSize: fontSize,
-            color: Colors.white,
+            color: AppColor.appwhiteColor,
           ),
         ),
       ),

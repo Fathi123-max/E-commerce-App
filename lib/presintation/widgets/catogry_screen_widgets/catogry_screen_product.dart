@@ -1,6 +1,8 @@
 import 'package:e_commerce_app/test.dart';
 import 'package:flutter/material.dart';
 
+import '../../../constatnt/const_color.dart';
+
 class ProductWidget extends StatefulWidget {
   final String imageUrl;
   final String name;
@@ -106,9 +108,9 @@ class _ProductWidgetState extends State<ProductWidget> {
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.red,
               ),
-              child: const Text(
+              child: Text(
                 'NEW',
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: TextStyle(color: AppColor.appwhiteColor, fontSize: 12),
               ),
             ),
           ),

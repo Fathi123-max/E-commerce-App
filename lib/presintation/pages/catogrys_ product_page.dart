@@ -61,6 +61,7 @@ class _CatogryPageState extends State<CatogryPage> {
                 ),
               ),
               ListView.builder(
+                padding: const EdgeInsets.only(left: 10),
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: products.length,

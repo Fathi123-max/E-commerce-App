@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/presintation/pages/review.dart';
 import 'package:e_commerce_app/presintation/widgets/catogry_screen_widgets/catogry_screen_product.dart';
 import 'package:e_commerce_app/presintation/widgets/counter_for_product_page.dart';
@@ -133,12 +134,12 @@ class _ProductPage8State extends State<ProductPage8>
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          const Text(
+                          Text(
                             '50\$',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: AppColor.appwhiteColor,
                               decoration: TextDecoration.none,
                               fontFamily: 'Montserrat',
                             ),
@@ -215,7 +216,7 @@ class _ProductPage8State extends State<ProductPage8>
                               setState(() {
                                 x2 = true;
                               });
-                            }, Colors.deepOrange),
+                            }, AppColor.appwhiteColor),
                           ),
                         ],
                       ),
@@ -247,21 +248,13 @@ class _ProductPage8State extends State<ProductPage8>
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        categoryChip('Smart Watch', () {
-                          // TODO: Implement smart watch category filtering
-                        }, Colors.grey),
+                        categoryChip('Smart Watch', () {}, Colors.grey),
                         const SizedBox(width: 8),
-                        categoryChip('Apple Watch', () {
-                          // TODO: Implement apple watch category filtering
-                        }, Colors.grey),
+                        categoryChip('Apple Watch', () {}, Colors.grey),
                         const SizedBox(width: 8),
-                        categoryChip('Men\'s Watch', () {
-                          // TODO: Implement men's watch category filtering
-                        }, Colors.grey),
+                        categoryChip('Men\'s Watch', () {}, Colors.grey),
                         const SizedBox(width: 8),
-                        categoryChip('Women\'s Watch', () {
-                          // TODO: Implement women's watch category filtering
-                        }, Colors.grey),
+                        categoryChip('Women\'s Watch', () {}, Colors.grey),
                       ],
                     ),
                   ),
@@ -270,10 +263,10 @@ class _ProductPage8State extends State<ProductPage8>
                   height: 15,
                 ),
                 SizedBox(
-                  height: 430,
+                  height: 450,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColor.appwhiteColor,
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
@@ -314,17 +307,23 @@ class _ProductPage8State extends State<ProductPage8>
                         ),
                         Expanded(
                           child: SizedBox(
-                            child: TabBarView(
-                              children: [
-                                description,
-                                const ReviewWidget(),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TabBarView(
+                                children: [
+                                  description,
+                                  const ReviewWidget(),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -342,10 +341,10 @@ class _ProductPage8State extends State<ProductPage8>
                           ),
                         ),
                       ),
-                      child: const Text(
+                      child: Text(
                         'Have You Seen These Products?',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColor.appwhiteColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),

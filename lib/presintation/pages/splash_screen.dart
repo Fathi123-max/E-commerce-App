@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:e_commerce_app/presintation/pages/login_page.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:e_commerce_app/constatnt/const_color.dart';
+import 'package:e_commerce_app/presintation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {
@@ -68,7 +69,7 @@ class SecondPageState extends State<SecondPage> {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: AppColor.appGreenColor,
       body: Center(
         child: Column(
           children: [
@@ -105,7 +106,7 @@ class SecondPageState extends State<SecondPage> {
                   image: DecorationImage(
                     image: AssetImage("assets/images/Logo.png"),
                   ),
-                  color: _b ? Colors.white : Colors.transparent,
+                  color: _b ? AppColor.appwhiteColor : Colors.transparent,
                   // shape: _c ? BoxShape.rectangle : BoxShape.circle,
                   borderRadius: _d
                       ? const BorderRadius.only()

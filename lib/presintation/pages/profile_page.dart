@@ -81,6 +81,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             const SizedBox(height: 16.0),
                             ListView.builder(
+                              padding: const EdgeInsets.only(left: 10),
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: 3,
@@ -114,6 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             const SizedBox(height: 16.0),
                             ListView.builder(
+                              padding: const EdgeInsets.only(left: 10),
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: _controllers.length,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constatnt/const_color.dart';
+
 class CategoryProductsPage extends StatefulWidget {
   final String categoryName;
 
@@ -41,7 +43,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 8.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColor.appwhiteColor,
                 borderRadius: BorderRadius.circular(16.0),
                 boxShadow: [
                   BoxShadow(

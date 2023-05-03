@@ -71,6 +71,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 Expanded(
                     child: ListView.builder(
+                  padding: const EdgeInsets.only(left: 10),
                   shrinkWrap: true,
                   itemCount: 20,
                   itemBuilder: (context, index) {

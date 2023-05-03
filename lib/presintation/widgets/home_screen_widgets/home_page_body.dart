@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/presintation/pages/catogrys_%20product_page.dart';
 import 'package:e_commerce_app/presintation/widgets/catogry_screen_widgets/catogry_screen_product.dart';
 import 'package:e_commerce_app/test3.dart';
@@ -34,7 +35,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               horizontalOffset: 30,
               verticalOffset: 300.0,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 310,
@@ -79,13 +80,18 @@ class _HomePageBodyState extends State<HomePageBody> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: const Text(
-                      'Catogries',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: const Text(
+                          'Catogries',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   Container(
@@ -120,67 +126,6 @@ class _HomePageBodyState extends State<HomePageBody> {
                             'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
                             context),
                       ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'New Arrivals',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black,
-                            backgroundColor: Colors.grey[200],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                              side: BorderSide(color: Colors.grey[300]!),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 12.0),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Text(
-                                'View All',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12.0,
-                                ),
-                              ),
-                              SizedBox(width: 8.0),
-                              Icon(
-                                Icons.arrow_forward,
-                                size: 12.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 200,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 5,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ProductWidget(
-                          imageUrl:
-                              '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
-                          price: 49.99,
-                          brand: '',
-                          name: 'Product 1',
-                        );
-                      },
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -305,6 +250,58 @@ class _HomePageBodyState extends State<HomePageBody> {
                       },
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'All Products',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ListView.builder(
+                    padding: const EdgeInsets.only(left: 10),
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 20,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: ProductWidget(
+                              imageUrl:
+                                  '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                              price: 49.99,
+                              brand: '',
+                              name: 'Product 1',
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: ProductWidget(
+                              imageUrl:
+                                  '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                              price: 39.99,
+                              brand: '',
+                              name: 'Product 2',
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
@@ -338,9 +335,9 @@ Widget _buildCategoryItem(String title, String image, BuildContext context) {
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 12,
-              color: Colors.white,
+              color: AppColor.appwhiteColor,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -462,7 +459,7 @@ class HomePageBody extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.appwhiteColor,
                   borderRadius: BorderRadius.circular(16.0),
                   boxShadow: [
                     BoxShadow(
@@ -603,7 +600,7 @@ class HomePageBody extends StatelessWidget {
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 8.0),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.appwhiteColor,
                   borderRadius: BorderRadius.circular(16.0),
                   boxShadow: [
                     BoxShadow(

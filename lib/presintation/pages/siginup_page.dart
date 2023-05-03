@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/presintation/pages/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -66,13 +67,13 @@ class _SingUpPageState extends State<SingUpPage>
             height: size.height,
             child: Container(
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.green,
-                    Colors.white,
+                    AppColor.appGreenColor,
+                    AppColor.appwhiteColor,
                   ],
                 ),
               ),
@@ -84,7 +85,7 @@ class _SingUpPageState extends State<SingUpPage>
                     width: size.width * .9,
                     height: size.width * 1.1,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColor.appwhiteColor,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
@@ -188,8 +189,8 @@ class _SingUpPageState extends State<SingUpPage>
         ),
         child: Text(
           string,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style: TextStyle(
+              color: AppColor.appwhiteColor, fontWeight: FontWeight.w600),
         ),
       ),
     );

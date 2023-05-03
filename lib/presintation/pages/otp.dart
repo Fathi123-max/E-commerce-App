@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../constatnt/const_color.dart';
+
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
 
@@ -65,13 +67,13 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
             height: size.height,
             child: Container(
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
                     Colors.green,
-                    Colors.white,
+                    AppColor.appwhiteColor,
                   ],
                 ),
               ),
@@ -83,7 +85,7 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
                     width: size.width * .9,
                     height: size.width * 1.1,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColor.appwhiteColor,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
@@ -182,8 +184,8 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
         ),
         child: Text(
           string,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style: TextStyle(
+              color: AppColor.appwhiteColor, fontWeight: FontWeight.w600),
         ),
       ),
     );

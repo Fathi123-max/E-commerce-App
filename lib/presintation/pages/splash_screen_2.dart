@@ -85,7 +85,7 @@ class _SplashScreen2State extends State<SplashScreen2>
                 child: Text(
                   'One Mart',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.green,
                     fontWeight: FontWeight.bold,
                     fontSize: animation1.value,
                   ),
