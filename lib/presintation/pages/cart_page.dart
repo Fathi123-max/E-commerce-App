@@ -51,7 +51,7 @@ class _CartPageState extends State<CartPage> {
                               color: Colors.red,
                               child: Icon(
                                 Icons.delete,
-                                color: AppColor.appwhiteColor,
+                                color: AppConst.appwhiteColor,
                               ),
                             ),
                             child: ListTile(
@@ -79,7 +79,7 @@ class _CartPageState extends State<CartPage> {
           : Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppColor.appwhiteColor,
+                color: AppConst.appwhiteColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),

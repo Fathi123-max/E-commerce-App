@@ -13,6 +13,10 @@ class ProductPage8 extends StatefulWidget {
 class _ProductPage8State extends State<ProductPage8>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  var x2 = false;
+
+  String photourl =
+      "https://cfb.rabbitloader.xyz/g7rhhzcb/rls.t-ww-a28/wp-content/uploads/Free-Pictures.jpg";
 
   @override
   void initState() {
@@ -35,20 +39,21 @@ class _ProductPage8State extends State<ProductPage8>
       height: 1.5,
     ),
   );
-  List<Widget> photos = [
-    Image.network(
-        'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
-        fit: BoxFit.fill),
-    Image.network(
-        'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
-        fit: BoxFit.fill),
-    Image.network(
-        'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
-        fit: BoxFit.fill),
+  int _selectedIndex = 0;
+  bool _isContainerVisible = false;
+
+  List photos = [
+    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
   ];
-  Widget categoryChip(String text, Function onTap, Color color) {
+
+  var color = AppConst.appwhiteColor;
+  var color2 = AppConst.appwhiteColor;
+
+  Widget categoryChip(String text, var onTap, Color color) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
@@ -81,7 +86,6 @@ class _ProductPage8State extends State<ProductPage8>
 
   @override
   Widget build(BuildContext context) {
-    var x2 = false;
     return SafeArea(
         child: DefaultTabController(
       length: 2,
@@ -98,7 +102,7 @@ class _ProductPage8State extends State<ProductPage8>
                 SizedBox(
                   height: 360,
                   child: ProductPhotos(
-                    images: [
+                    images: const [
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
@@ -134,12 +138,12 @@ class _ProductPage8State extends State<ProductPage8>
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          Text(
+                          const Text(
                             '50\$',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: AppColor.appwhiteColor,
+                              color: AppConst.appwhiteColor,
                               decoration: TextDecoration.none,
                               fontFamily: 'Montserrat',
                             ),
@@ -180,22 +184,42 @@ class _ProductPage8State extends State<ProductPage8>
                           fontFamily: 'Montserrat',
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AnimatedOpacity(
-                            opacity: x2 ? 1.0 : 0.0,
-                            duration: const Duration(milliseconds: 500),
-                            child: SizedBox(
-                              height: 120,
-                              width: 100,
-                              child: Image.network(
-                                "https://cfb.rabbitloader.xyz/g7rhhzcb/rls.t-ww-a28/wp-content/uploads/Free-Pictures.jpg",
-                                fit: BoxFit.fill,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Visibility(
+                                visible: _isContainerVisible,
+                                child: Container(
+                                  height: 120,
+                                  width: 110,
+                                  decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(30)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              photos[_selectedIndex]),
+                                          fit: BoxFit.cover)),
+                                ),
+                              ),
+
+                              /*
+                      
+                            AnimatedOpacity(
+                              opacity: x2 ? 1.0 : 0.0,
+                              duration: const Duration(milliseconds: 500),
+                              child: SizedBox(
+                                height: 120,
+                                width: 100,
+                                child: Image.network(
+                                  photourl,
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ], */
+                            ]),
                       ),
                       const Text(
                         'Color :',
@@ -214,9 +238,23 @@ class _ProductPage8State extends State<ProductPage8>
                             height: 50,
                             child: categoryChip("Red", () {
                               setState(() {
-                                x2 = true;
+                                _selectedIndex = 0;
+                                _isContainerVisible = true;
+                                color2 = AppConst.appGreenColor;
+                                color = AppConst.appwhiteColor;
                               });
-                            }, AppColor.appwhiteColor),
+                            }, color2),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: categoryChip("white", () {
+                              setState(() {
+                                _selectedIndex = 1;
+                                _isContainerVisible = true;
+                                color = AppConst.appGreenColor;
+                                color2 = AppConst.appwhiteColor;
+                              });
+                            }, color),
                           ),
                         ],
                       ),
@@ -248,13 +286,17 @@ class _ProductPage8State extends State<ProductPage8>
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        categoryChip('Smart Watch', () {}, Colors.grey),
+                        categoryChip(
+                            'Smart Watch', () {}, AppConst.appRedColor),
                         const SizedBox(width: 8),
-                        categoryChip('Apple Watch', () {}, Colors.grey),
+                        categoryChip(
+                            'Apple Watch', () {}, AppConst.appRedColor),
                         const SizedBox(width: 8),
-                        categoryChip('Men\'s Watch', () {}, Colors.grey),
+                        categoryChip(
+                            'Men\'s Watch', () {}, AppConst.appRedColor),
                         const SizedBox(width: 8),
-                        categoryChip('Women\'s Watch', () {}, Colors.grey),
+                        categoryChip(
+                            'Women\'s Watch', () {}, AppConst.appRedColor),
                       ],
                     ),
                   ),
@@ -266,7 +308,7 @@ class _ProductPage8State extends State<ProductPage8>
                   height: 450,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: AppColor.appwhiteColor,
+                      color: AppConst.appwhiteColor,
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
@@ -332,7 +374,7 @@ class _ProductPage8State extends State<ProductPage8>
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+                        backgroundColor: AppConst.appRedColor,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(30.0),
@@ -341,10 +383,10 @@ class _ProductPage8State extends State<ProductPage8>
                           ),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Have You Seen These Products?',
                         style: TextStyle(
-                          color: AppColor.appwhiteColor,
+                          color: AppConst.appwhiteColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),

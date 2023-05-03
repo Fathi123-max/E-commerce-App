@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/otp.dart';
+import 'package:e_commerce_app/presintation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -17,6 +17,11 @@ class _SingUpPageState extends State<SingUpPage>
   late Animation<double> _opacity;
   late Animation<double> _transform;
 
+  bool seex = false;
+
+  String seey = "false";
+
+  bool seez = false;
   @override
   void initState() {
     _controller = AnimationController(
@@ -67,13 +72,13 @@ class _SingUpPageState extends State<SingUpPage>
             height: size.height,
             child: Container(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    AppColor.appGreenColor,
-                    AppColor.appwhiteColor,
+                    AppConst.appGreenColor,
+                    AppConst.appwhiteColor,
                   ],
                 ),
               ),
@@ -85,7 +90,7 @@ class _SingUpPageState extends State<SingUpPage>
                     width: size.width * .9,
                     height: size.width * 1.1,
                     decoration: BoxDecoration(
-                      color: AppColor.appwhiteColor,
+                      color: AppConst.appwhiteColor,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
@@ -108,11 +113,17 @@ class _SingUpPageState extends State<SingUpPage>
                         ),
                         const SizedBox(),
                         component1(Icons.account_circle_outlined,
-                            'User name...', false, false),
-                        component1(
-                            Icons.email_outlined, 'Email...', false, true),
-                        component1(
-                            Icons.lock_outline, 'Password...', true, false),
+                            'User name...', false, true),
+                        component1(Icons.email_outlined,
+                            'Enter Email Or Phone Number', false, true),
+                        Visibility(
+                            visible: seex,
+                            child: component1(
+                                Icons.lock_outline, seey, true, false)),
+                        Visibility(
+                            visible: seez,
+                            child: component1(Icons.lock_outline,
+                                "${seey} Again", true, false)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -121,7 +132,7 @@ class _SingUpPageState extends State<SingUpPage>
                               2.6,
                               () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const Otp(),
+                                  builder: (context) => const HomePage(),
                                 ));
                                 HapticFeedback.lightImpact();
                                 Fluttertoast.showToast(
@@ -143,7 +154,7 @@ class _SingUpPageState extends State<SingUpPage>
   }
 
   Widget component1(
-      IconData icon, String hintText, bool isPassword, bool isEmail) {
+      IconData icon, String hintText, bool isPassword, bool isname) {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.width / 8,
@@ -157,7 +168,7 @@ class _SingUpPageState extends State<SingUpPage>
       child: TextField(
         style: TextStyle(color: Colors.black.withOpacity(.8)),
         obscureText: isPassword,
-        keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
+        keyboardType: isname ? TextInputType.name : TextInputType.phone,
         decoration: InputDecoration(
           prefixIcon: Icon(
             icon,
@@ -169,8 +180,40 @@ class _SingUpPageState extends State<SingUpPage>
           hintStyle:
               TextStyle(fontSize: 14, color: Colors.black.withOpacity(.5)),
         ),
+        onSubmitted: (value) {
+          if (isname) {
+            if (isValidEmail(value)) {
+              setState(() {
+                seex = true;
+                seez = true;
+
+                seey = "Password";
+              });
+            } else {
+              // Do something with invalid email
+            }
+          } else {}
+          if (isValidPhoneNumber(value)) {
+            setState(() {
+              seey = "Enter OTP";
+              seex = true;
+              seez = false;
+            });
+          } else {
+            // Do something with invalid phone number
+          }
+        },
       ),
     );
+  }
+
+  bool isValidEmail(String email) {
+    return RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+        .hasMatch(email);
+  }
+
+  bool isValidPhoneNumber(String phoneNumber) {
+    return RegExp(r'^([0-9]{10,})$').hasMatch(phoneNumber);
   }
 
   Widget component2(String string, double width, VoidCallback voidCallback) {
@@ -189,8 +232,8 @@ class _SingUpPageState extends State<SingUpPage>
         ),
         child: Text(
           string,
-          style: TextStyle(
-              color: AppColor.appwhiteColor, fontWeight: FontWeight.w600),
+          style: const TextStyle(
+              color: AppConst.appwhiteColor, fontWeight: FontWeight.w600),
         ),
       ),
     );

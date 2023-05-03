@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/catogrys_%20product_page.dart';
 import 'package:e_commerce_app/presintation/widgets/catogry_screen_widgets/catogry_screen_product.dart';
 import 'package:e_commerce_app/test3.dart';
 import 'package:flutter/material.dart';
@@ -313,9 +312,7 @@ class _HomePageBodyState extends State<HomePageBody> {
 Widget _buildCategoryItem(String title, String image, BuildContext context) {
   return GestureDetector(
     onTap: () {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const CatogryPage(),
-      ));
+      Navigator.pushNamed(context, 'CatogryPage');
     },
     child: Container(
       margin: const EdgeInsets.all(5),
@@ -337,7 +334,7 @@ Widget _buildCategoryItem(String title, String image, BuildContext context) {
             title,
             style: TextStyle(
               fontSize: 12,
-              color: AppColor.appwhiteColor,
+              color: AppConst.appwhiteColor,
               fontWeight: FontWeight.bold,
             ),
           ),

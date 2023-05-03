@@ -43,7 +43,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 8.0),
               decoration: BoxDecoration(
-                color: AppColor.appwhiteColor,
+                color: AppConst.appwhiteColor,
                 borderRadius: BorderRadius.circular(16.0),
                 boxShadow: [
                   BoxShadow(

@@ -131,7 +131,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                             ? FontWeight.bold
                             : FontWeight.normal,
                         color: index == selectedIndex
-                            ? AppColor.appwhiteColor
+                            ? AppConst.appwhiteColor
                             : Colors.black,
                       ),
                     ),

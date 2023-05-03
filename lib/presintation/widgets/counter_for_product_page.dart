@@ -93,7 +93,7 @@ class _CounterWidgetState extends State<CounterWidget> {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 12.0),
-                backgroundColor: AppColor.appGreenColor,
+                backgroundColor: AppConst.appGreenColor,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(10.0),

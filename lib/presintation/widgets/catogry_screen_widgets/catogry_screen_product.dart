@@ -81,7 +81,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                               fontWeight: FontWeight.bold,
                               color: Colors.red),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         Text(
@@ -108,9 +108,9 @@ class _ProductWidgetState extends State<ProductWidget> {
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.red,
               ),
-              child: Text(
+              child: const Text(
                 'NEW',
-                style: TextStyle(color: AppColor.appwhiteColor, fontSize: 12),
+                style: TextStyle(color: AppConst.appwhiteColor, fontSize: 12),
               ),
             ),
           ),

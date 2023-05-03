@@ -41,7 +41,7 @@ class CustomTitle extends StatelessWidget {
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.bold,
             fontSize: fontSize,
-            color: AppColor.appwhiteColor,
+            color: AppConst.appwhiteColor,
           ),
         ),
       ),

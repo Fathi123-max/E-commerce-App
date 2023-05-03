@@ -1,11 +1,16 @@
+import 'dart:async';
+
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/list_of_catogry_page.dart';
 import 'package:e_commerce_app/presintation/pages/cart_page.dart';
 import 'package:e_commerce_app/presintation/pages/search_page.dart';
 import 'package:e_commerce_app/presintation/widgets/home_screen_widgets/home_page_body.dart';
 import 'package:e_commerce_app/test2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+
+import '../../list_of_catogry_page.dart';
+import 'catogrys_ product_page.dart';
+import 'custom_login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,18 +36,48 @@ class _HomePageState extends State<HomePage> {
   bool showSelectedLabels = true;
   bool showUnselectedLabels = true;
 
-  Color selectedColor = AppColor.appGreenColor;
-  Color unselectedColor = AppColor.appMainColor200;
+  Color selectedColor = AppConst.appGreenColor;
+  Color unselectedColor = AppConst.appMainColor200;
 
   Color? containerColor;
-
   List<Widget> pages = [
-    SearchPage(),
-    ListOfCatogry(),
-    HomePageBody(),
-    CartPage(),
-    ProfilePage8()
+    SearchNavigator(),
+    CatogryNavigator(),
+    HomeNavigator(),
+    CartNavigator(),
+    ProfileNavigator(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(milliseconds: 500), () {
+      showSignInDialog(context);
+    });
+  }
+
+  showSignInDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        Size size = MediaQuery.of(context).size;
+
+        return Dialog(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(30))),
+          child: Container(
+            width: size.width * .9,
+            height: size.width * 1.1,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+            ),
+            child: const custom_login(),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -121,3 +156,68 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ), */
+
+class CatogryNavigator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        Widget page = ListOfCatogry();
+        if (settings.name == 'CatogryPage') page = const CatogryPage();
+        return MaterialPageRoute(builder: (_) => page);
+      },
+    );
+  }
+}
+
+class HomeNavigator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        Widget page = const HomePageBody();
+        if (settings.name == 'CatogryPage') page = const CatogryPage();
+        return MaterialPageRoute(builder: (_) => page);
+      },
+    );
+  }
+}
+
+class SearchNavigator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        Widget page = SearchPage();
+        if (settings.name == 'CatogryPage') page = const CatogryPage();
+        return MaterialPageRoute(builder: (_) => page);
+      },
+    );
+  }
+}
+
+class CartNavigator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        Widget page = const CartPage();
+        if (settings.name == 'CatogryPage') page = const CatogryPage();
+        return MaterialPageRoute(builder: (_) => page);
+      },
+    );
+  }
+}
+
+class ProfileNavigator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        Widget page = ProfilePage8();
+        if (settings.name == 'CatogryPage') page = const CatogryPage();
+        return MaterialPageRoute(builder: (_) => page);
+      },
+    );
+  }
+}

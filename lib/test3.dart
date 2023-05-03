@@ -42,7 +42,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
                     .animateToPage(index);
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 8.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
@@ -57,7 +57,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
         .toList();
 
     return Container(
-      color: AppColor.appwhiteColor,
+      color: AppConst.appwhiteColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -77,7 +77,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
                     viewportFraction: 1,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
           ),

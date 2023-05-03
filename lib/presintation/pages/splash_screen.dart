@@ -69,7 +69,7 @@ class SecondPageState extends State<SecondPage> {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: AppColor.appGreenColor,
+      backgroundColor: AppConst.appGreenColor,
       body: Center(
         child: Column(
           children: [
@@ -106,7 +106,7 @@ class SecondPageState extends State<SecondPage> {
                   image: DecorationImage(
                     image: AssetImage("assets/images/Logo.png"),
                   ),
-                  color: _b ? AppColor.appwhiteColor : Colors.transparent,
+                  color: _b ? AppConst.appwhiteColor : Colors.transparent,
                   // shape: _c ? BoxShape.rectangle : BoxShape.circle,
                   borderRadius: _d
                       ? const BorderRadius.only()

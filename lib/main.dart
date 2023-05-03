@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen2(),
+      home: const SplashScreen2(),
     );
   }
 }

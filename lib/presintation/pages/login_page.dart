@@ -74,8 +74,8 @@ class _LoginPageState extends State<LoginPage>
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    AppColor.appGreenColor,
-                    AppColor.appwhiteColor,
+                    AppConst.appGreenColor,
+                    AppConst.appwhiteColor,
                   ],
                 ),
               ),
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage>
                     width: size.width * .9,
                     height: size.width * 1.1,
                     decoration: BoxDecoration(
-                      color: AppColor.appwhiteColor,
+                      color: AppConst.appwhiteColor,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
@@ -229,7 +229,7 @@ class _LoginPageState extends State<LoginPage>
         child: Text(
           string,
           style: TextStyle(
-              color: AppColor.appwhiteColor, fontWeight: FontWeight.w600),
+              color: AppConst.appwhiteColor, fontWeight: FontWeight.w600),
         ),
       ),
     );

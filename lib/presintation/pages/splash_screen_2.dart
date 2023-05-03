@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/presintation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -70,7 +71,7 @@ class _SplashScreen2State extends State<SplashScreen2>
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: HexColor("#73d829"),
+      backgroundColor: AppConst.hexColor,
       body: Stack(
         children: [
           Column(
@@ -85,7 +86,7 @@ class _SplashScreen2State extends State<SplashScreen2>
                 child: Text(
                   'One Mart',
                   style: TextStyle(
-                    color: Colors.green,
+                    color: AppConst.appwhiteColor,
                     fontWeight: FontWeight.bold,
                     fontSize: animation1.value,
                   ),
@@ -109,7 +110,7 @@ class _SplashScreen2State extends State<SplashScreen2>
                   borderRadius: BorderRadius.circular(30),
                 ),
                 // child: Image.asset('assets/images/file_name.png')
-                child: Image.asset("assets/images/Logo.png"),
+                child: AppConst.logoImage,
               ),
             ),
           ),

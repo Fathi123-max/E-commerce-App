@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/presintation/pages/catogrys_%20product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -28,7 +27,7 @@ class ListOfCatogry extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: _w / 20),
                   height: _w / 3,
                   decoration: BoxDecoration(
-                    color: AppColor.appwhiteColor,
+                    color: AppConst.appwhiteColor,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(20),
                     ),
@@ -54,9 +53,7 @@ class ListOfCatogry extends StatelessWidget {
   Widget _buildCategoryItem(BuildContext context, String title, String image) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const CatogryPage(),
-        ));
+        Navigator.pushNamed(context, 'CatogryPage');
       },
       child: Container(
         margin: const EdgeInsets.all(5),
@@ -77,7 +74,7 @@ class ListOfCatogry extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                color: AppColor.appwhiteColor,
+                color: AppConst.appwhiteColor,
                 fontWeight: FontWeight.bold,
               ),
             ),

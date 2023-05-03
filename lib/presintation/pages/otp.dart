@@ -73,7 +73,7 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
                   end: Alignment.bottomRight,
                   colors: [
                     Colors.green,
-                    AppColor.appwhiteColor,
+                    AppConst.appwhiteColor,
                   ],
                 ),
               ),
@@ -85,7 +85,7 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
                     width: size.width * .9,
                     height: size.width * 1.1,
                     decoration: BoxDecoration(
-                      color: AppColor.appwhiteColor,
+                      color: AppConst.appwhiteColor,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
@@ -185,7 +185,7 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
         child: Text(
           string,
           style: TextStyle(
-              color: AppColor.appwhiteColor, fontWeight: FontWeight.w600),
+              color: AppConst.appwhiteColor, fontWeight: FontWeight.w600),
         ),
       ),
     );
