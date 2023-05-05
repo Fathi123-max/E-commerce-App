@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constatnt/const_color.dart';
+import '../constatnt/const_color.dart';
 
 class CustomTitle extends StatelessWidget {
   final String titleText;

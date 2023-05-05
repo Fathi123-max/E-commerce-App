@@ -1,6 +1,6 @@
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:flutter/material.dart';
-
-import '../../constatnt/const_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryProductsPage extends StatefulWidget {
   final String categoryName;
@@ -68,7 +68,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(height: 16.0),
+                  SizedBox(height: 16.h),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -82,7 +82,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8.0),
+                  SizedBox(height: 8.h),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -95,7 +95,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16.0),
+                  SizedBox(height: 16.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -119,7 +119,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16.0),
+                  SizedBox(height: 16.h),
                 ],
               ),
             ),
@@ -138,7 +138,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
           size: MediaQuery.of(context).size.width * 0.06,
           color: Theme.of(context).primaryColor,
         ),
-        const SizedBox(height: 8.0),
+        SizedBox(height: 8.h),
         Text(
           value,
           style: TextStyle(

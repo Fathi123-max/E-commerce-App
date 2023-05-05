@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  ProfilePage({Key? key}) : super(key: key);
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -36,36 +37,36 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                             Text(
                               'Account Information',
                               style: Theme.of(context).textTheme.headline6,
                             ),
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                             const ListTile(
                               leading: Icon(Icons.person),
                               title: Text('Name'),
                               subtitle: Text('John Doe'),
                             ),
-                            const SizedBox(height: 8.0),
+                            SizedBox(height: 8.h),
                             const ListTile(
                               leading: Icon(Icons.email),
                               title: Text('Email'),
                               subtitle: Text('johndoe@example.com'),
                             ),
-                            const SizedBox(height: 8.0),
+                            SizedBox(height: 8.h),
                             const ListTile(
                               leading: Icon(Icons.phone),
                               title: Text('Phone'),
                               subtitle: Text('1234567890'),
                             ),
-                            const SizedBox(height: 8.0),
+                            SizedBox(height: 8.h),
                             const ListTile(
                               leading: Icon(Icons.location_on),
                               title: Text('Address'),
                               subtitle: Text('123 Main St, New York, NY'),
                             ),
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                           ],
                         ),
                       ),
@@ -74,12 +75,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                             Text(
                               'My Orders',
                               style: Theme.of(context).textTheme.headline6,
                             ),
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                             ListView.builder(
                               padding: const EdgeInsets.only(left: 10),
                               physics: const NeverScrollableScrollPhysics(),
@@ -99,7 +100,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 );
                               },
                             ),
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                           ],
                         ),
                       ),
@@ -108,12 +109,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                             Text(
                               'Account and Purchases Controllers',
                               style: Theme.of(context).textTheme.headline6,
                             ),
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                             ListView.builder(
                               padding: const EdgeInsets.only(left: 10),
                               physics: const NeverScrollableScrollPhysics(),
@@ -129,7 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 );
                               },
                             ),
-                            const SizedBox(height: 16.0),
+                            SizedBox(height: 16.h),
                           ],
                         ),
                       ),

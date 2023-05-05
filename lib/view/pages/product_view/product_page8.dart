@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class ProfilePage8 extends StatefulWidget {
@@ -69,7 +70,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                   backgroundImage: NetworkImage(
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg'),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Text(
                   'John Doe',
                   style: TextStyle(
@@ -77,7 +78,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Text(
                   'johndoe@example.com',
                   style: TextStyle(
@@ -152,7 +153,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -172,7 +173,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -192,7 +193,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -290,11 +291,11 @@ class _ProfilePage8State extends State<ProfilePage8> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 8.h),
           Text(address1),
-          if (address2.isNotEmpty) SizedBox(height: 8),
+          if (address2.isNotEmpty) SizedBox(height: 8.h),
           if (address2.isNotEmpty) Text(address2),
-          SizedBox(height: 8),
+          SizedBox(height: 8.h),
           Text('$city, $state $zip'),
         ],
       ),
@@ -314,13 +315,13 @@ class _ProfilePage8State extends State<ProfilePage8> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           _buildPaymentMethod(
             icon: Icons.credit_card,
             title: 'Credit/Debit Card',
             subtitle: 'Visa **34',
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           _buildPaymentMethod(
             icon: Icons.payment,
             title: 'PayPal',
@@ -355,7 +356,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Text(
                 subtitle,
                 style: TextStyle(

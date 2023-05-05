@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/home_page.dart';
+import 'package:e_commerce_app/view/pages/home_view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/login_page.dart';
+import 'package:e_commerce_app/view/pages/auth_view/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {

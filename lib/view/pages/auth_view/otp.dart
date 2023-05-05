@@ -1,9 +1,9 @@
-import 'package:e_commerce_app/presintation/pages/login_page.dart';
+import 'package:e_commerce_app/view/pages/auth_view/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../constatnt/const_color.dart';
+import '../../../constatnt/const_color.dart';
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);

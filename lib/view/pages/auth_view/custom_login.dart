@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/home_page.dart';
-import 'package:e_commerce_app/presintation/pages/siginup_page.dart';
+import 'package:e_commerce_app/view/pages/auth_view/siginup_page.dart';
+import 'package:e_commerce_app/view/pages/home_view/home_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

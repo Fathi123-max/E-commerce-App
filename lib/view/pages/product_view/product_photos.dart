@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'constatnt/const_color.dart';
+import '../../../constatnt/const_color.dart';
 
 class ProductPhotos extends StatefulWidget {
   final List<String> images;
@@ -48,8 +49,8 @@ class _ProductPhotosState extends State<ProductPhotos> {
                   child: Image.network(
                     image,
                     fit: BoxFit.cover,
-                    height: 50,
-                    width: 50,
+                    height: 50.h,
+                    width: 50.w,
                   ),
                 ),
               ),
@@ -68,7 +69,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
                   key: _sliderKey,
                   items: photos,
                   options: CarouselOptions(
-                    height: 300,
+                    height: 300.h,
                     clipBehavior: Clip.antiAlias,
                     autoPlay: true,
                     enlargeCenterPage: false,

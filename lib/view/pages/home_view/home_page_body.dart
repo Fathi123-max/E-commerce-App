@@ -1,7 +1,8 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/widgets/catogry_screen_widgets/catogry_screen_product.dart';
-import 'package:e_commerce_app/test3.dart';
+import 'package:e_commerce_app/view/pages/catogry_view/catogry_screen_product.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class HomePageBody extends StatefulWidget {
@@ -37,15 +38,15 @@ class _HomePageBodyState extends State<HomePageBody> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 310,
-                    child: ProductPhotos(images: [
+                    height: 310.h,
+                    child: ProductPhotos(images: const [
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                     ], thumb: false),
                   ),
                   Container(
-                    height: 80,
+                    height: 80.h,
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       children: [
@@ -53,7 +54,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 10),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                               image: const DecorationImage(
                                 image: NetworkImage(
                                     'https://cdn.pixabay.com/photo/2014/12/26/18/04/castle-580610_960_720.jpg'),
@@ -66,7 +67,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 10),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                               image: const DecorationImage(
                                 image: NetworkImage(
                                     'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg'),
@@ -78,21 +79,21 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: const Text(
+                        child: Text(
                           'Catogries',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Container(
                     padding: const EdgeInsets.all(10),
                     child: GridView.count(
@@ -127,16 +128,16 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           'Featured Products',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18.sp, fontWeight: FontWeight.bold),
                         ),
                         ElevatedButton(
                           onPressed: () {},
@@ -144,7 +145,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                             foregroundColor: Colors.black,
                             backgroundColor: Colors.grey[200],
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8.0.r),
                               side: BorderSide(color: Colors.grey[300]!),
                             ),
                             padding: const EdgeInsets.symmetric(
@@ -152,15 +153,15 @@ class _HomePageBodyState extends State<HomePageBody> {
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Text(
                                 'View All',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12.0,
+                                  fontSize: 12.0.sp,
                                 ),
                               ),
-                              SizedBox(width: 8.0),
+                              SizedBox(width: 8.0.w),
                               Icon(
                                 Icons.arrow_forward,
                                 size: 12.0,
@@ -171,9 +172,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Container(
-                    height: 200,
+                    height: 200.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
@@ -188,16 +189,16 @@ class _HomePageBodyState extends State<HomePageBody> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           'Popular Products',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18.sp, fontWeight: FontWeight.bold),
                         ),
                         ElevatedButton(
                           onPressed: () {},
@@ -205,7 +206,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                             foregroundColor: Colors.black,
                             backgroundColor: Colors.grey[200],
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8.0.r),
                               side: BorderSide(color: Colors.grey[300]!),
                             ),
                             padding: const EdgeInsets.symmetric(
@@ -213,16 +214,16 @@ class _HomePageBodyState extends State<HomePageBody> {
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Text(
                                 'View All',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12.0,
+                                  fontSize: 12.0.sp,
                                 ),
                               ),
-                              SizedBox(width: 8.0),
-                              Icon(
+                              SizedBox(width: 8.0.w),
+                              const Icon(
                                 Icons.arrow_forward,
                                 size: 12.0,
                               ),
@@ -232,9 +233,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   SizedBox(
-                    height: 200,
+                    height: 200.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
@@ -249,24 +250,24 @@ class _HomePageBodyState extends State<HomePageBody> {
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           'All Products',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   ListView.builder(
                     padding: const EdgeInsets.only(left: 10),
@@ -275,10 +276,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                     itemCount: 20,
                     itemBuilder: (context, index) {
                       return Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
-                            flex: 1,
                             child: ProductWidget(
                               imageUrl:
                                   '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
@@ -288,7 +288,6 @@ class _HomePageBodyState extends State<HomePageBody> {
                             ),
                           ),
                           Expanded(
-                            flex: 1,
                             child: ProductWidget(
                               imageUrl:
                                   '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
@@ -315,25 +314,25 @@ Widget _buildCategoryItem(String title, String image, BuildContext context) {
       Navigator.pushNamed(context, 'CatogryPage');
     },
     child: Container(
-      margin: const EdgeInsets.all(5),
+      margin: EdgeInsets.all(5.r),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         image: DecorationImage(
           image: NetworkImage(image),
           fit: BoxFit.cover,
         ),
       ),
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(10.r),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
           color: Colors.black.withOpacity(0.5),
         ),
         child: Center(
           child: Text(
             title,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12.sp,
               color: AppConst.appwhiteColor,
               fontWeight: FontWeight.bold,
             ),
@@ -491,7 +490,7 @@ class HomePageBody extends StatelessWidget {
                               fontSize: 16.0,
                             ),
                           ),
-                          SizedBox(height: 8.0),
+                          SizedBox(height: 8.h.0),
                           Text(
                             'Product Description',
                             style: TextStyle(
@@ -499,7 +498,7 @@ class HomePageBody extends StatelessWidget {
                               color: Colors.grey[600],
                             ),
                           ),
-                          SizedBox(height: 8.0),
+                          SizedBox(height: 8.h.0),
                           Text(
                             '\$50',
                             style: TextStyle(
@@ -508,7 +507,7 @@ class HomePageBody extends StatelessWidget {
                               color: Colors.blue,
                             ),
                           ),
-                          SizedBox(height: 16.0),
+                          SizedBox(height: 16.h.0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -622,7 +621,7 @@ class HomePageBody extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: 16.0),
+                    SizedBox(height: 16.h.0),
                     Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -636,7 +635,7 @@ class HomePageBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8.0),
+                    SizedBox(height: 8.h.0),
                     Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -649,7 +648,7 @@ class HomePageBody extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16.0),
+                    SizedBox(height: 16.h.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -673,7 +672,7 @@ class HomePageBody extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16.0),
+                    SizedBox(height: 16.h.0),
                   ],
                 ),
               ),
@@ -693,7 +692,7 @@ class HomePageBody extends StatelessWidget {
           size: MediaQuery.of(context).size.width * 0.06,
           color: Theme.of(context).primaryColor,
         ),
-        SizedBox(height: 8.0),
+        SizedBox(height: 8.h.0),
         Text(
           value,
           style: TextStyle(

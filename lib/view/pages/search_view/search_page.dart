@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/presintation/widgets/catogry_screen_widgets/catogry_screen_product.dart';
+import 'package:e_commerce_app/view/pages/catogry_view/catogry_screen_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 

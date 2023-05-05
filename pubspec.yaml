@@ -46,6 +46,7 @@ dependencies:
   hexcolor: ^3.0.1
   rating_bar_flutter: ^1.0.2
   shimmer: ^2.0.0
+  flutter_screenutil: ^5.7.0
 
 dev_dependencies:
   flutter_test:

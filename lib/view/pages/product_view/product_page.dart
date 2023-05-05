@@ -1,9 +1,10 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/review.dart';
-import 'package:e_commerce_app/presintation/widgets/catogry_screen_widgets/catogry_screen_product.dart';
-import 'package:e_commerce_app/presintation/widgets/counter_for_product_page.dart';
-import 'package:e_commerce_app/test3.dart';
+import 'package:e_commerce_app/view/pages/product_view/review.dart';
+import 'package:e_commerce_app/view/pages/catogry_view/catogry_screen_product.dart';
+import 'package:e_commerce_app/view/pages/product_view/counter_for_product_page.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductPage8 extends StatefulWidget {
   @override
@@ -102,7 +103,7 @@ class _ProductPage8State extends State<ProductPage8>
                 SizedBox(
                   height: 360,
                   child: ProductPhotos(
-                    images: const [
+                    images: [
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
@@ -125,7 +126,7 @@ class _ProductPage8State extends State<ProductPage8>
                           fontFamily: 'Montserrat',
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8.h),
                       Row(
                         children: [
                           Text(
@@ -150,8 +151,8 @@ class _ProductPage8State extends State<ProductPage8>
                           ),
                         ],
                       ),
-                      const SizedBox(height: 16),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
+                      SizedBox(height: 16.h),
                       Text(
                         'Product code :   25154',
                         style: TextStyle(
@@ -162,7 +163,7 @@ class _ProductPage8State extends State<ProductPage8>
                           fontFamily: 'Montserrat',
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8.h),
                       const Text(
                         'Description',
                         style: TextStyle(
@@ -173,7 +174,7 @@ class _ProductPage8State extends State<ProductPage8>
                           fontFamily: 'Montserrat',
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8.h),
                       const Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce faucibus volutpat neque, sit amet cursus magna efficitur sit amet. Nullam blandit bibendum ipsum in tincidunt. Nunc condimentum auctor mi, eget facilisis ante tempor eu. Integer hendrerit sem sed turpis commodo, in consectetur nisi hendrerit. Morbi varius sagittis ipsum sit amet ultrices. Nulla ornare est sit amet venenatis sollicitudin. Etiam elementum nisi nisl, ac mattis leo aliquam eget. Vivamus vitae libero id lectus placerat auctor ut et arcu. Sed vel quam ut lacus ullamcorper rhoncus. Donec scelerisque purus sed est maximus, eu fringilla justo dictum. Duis ac elit vel elit sodales vulputate ut eget justo. Suspendisse eleifend augue eget nisi fringilla blandit.',
                         style: TextStyle(
@@ -192,7 +193,7 @@ class _ProductPage8State extends State<ProductPage8>
                               Visibility(
                                 visible: _isContainerVisible,
                                 child: Container(
-                                  height: 120,
+                                  height: 120.h,
                                   width: 110,
                                   decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.all(
@@ -208,9 +209,9 @@ class _ProductPage8State extends State<ProductPage8>
                       
                             AnimatedOpacity(
                               opacity: x2 ? 1.0 : 0.0,
-                              duration: const Duration(milliseconds: 500),
+                              duration:     Duration(milliseconds: 500),
                               child: SizedBox(
-                                height: 120,
+                                height: 120.h,
                                 width: 100,
                                 child: Image.network(
                                   photourl,
@@ -258,14 +259,14 @@ class _ProductPage8State extends State<ProductPage8>
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 8,
+                      SizedBox(
+                        height: 8.h,
                       ),
                       CounterWidget()
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
@@ -279,7 +280,7 @@ class _ProductPage8State extends State<ProductPage8>
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
@@ -344,8 +345,8 @@ class _ProductPage8State extends State<ProductPage8>
                             indicatorWeight: 2.0,
                           ),
                         ),
-                        const SizedBox(
-                          height: 16,
+                        SizedBox(
+                          height: 16.h,
                         ),
                         Expanded(
                           child: SizedBox(
@@ -420,7 +421,7 @@ class _ProductPage8State extends State<ProductPage8>
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     Row(
                       children: [
                         Expanded(

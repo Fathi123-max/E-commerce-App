@@ -1,7 +1,7 @@
-import 'package:e_commerce_app/test3.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/catogry_screen_widgets/catogry_screen_product.dart';
+import 'catogry_screen_product.dart';
 
 class CatogryPage extends StatefulWidget {
   const CatogryPage({Key? key}) : super(key: key);

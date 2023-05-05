@@ -1,16 +1,16 @@
 import 'dart:async';
 
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/presintation/pages/cart_page.dart';
-import 'package:e_commerce_app/presintation/pages/search_page.dart';
-import 'package:e_commerce_app/presintation/widgets/home_screen_widgets/home_page_body.dart';
-import 'package:e_commerce_app/test2.dart';
+import 'package:e_commerce_app/view/pages/cart_view/cart_page.dart';
+import 'package:e_commerce_app/view/pages/home_view/home_page_body.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_page8.dart';
+import 'package:e_commerce_app/view/pages/search_view/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
-import '../../list_of_catogry_page.dart';
-import 'catogrys_ product_page.dart';
-import 'custom_login.dart';
+import '../../../presintation/pages/auth_view/custom_login.dart';
+import '../catogry_view/catogrys_ product_page.dart';
+import '../catogry_view/list_of_catogry_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
           child: pages[selectedIndex],
         ),
         bottomNavigationBar: SnakeNavigationBar.color(
-          // height: 80,
+          // height: 8.h0,
           behaviour: snakeBarStyle,
           snakeShape: snakeShape,
           shape: bottomBarShape,
