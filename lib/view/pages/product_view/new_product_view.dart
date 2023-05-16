@@ -51,9 +51,34 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-        ),
+            onPressed: () {},
+            child: Stack(
+              children: [
+                FloatingActionButton(
+                  onPressed: () {},
+                  child: const Icon(Icons.shopping_cart),
+                ),
+                Positioned(
+                  right: 5,
+                  top: 5,
+                  child: Container(
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Text(
+                      '4',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )),
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -63,11 +88,15 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
               floating: _floating,
               expandedHeight: size.height * 1.2,
               flexibleSpace: Stack(children: [
-                const Positioned.fill(
-                    top: 0, left: 0, right: 0, child: FlutterLogo()),
+                Positioned.fill(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: size.height * .7,
+                    child: FlutterLogo()),
                 Positioned(
-                    bottom: 10,
-                    right: 30,
+                    bottom: size.height * .76,
+                    right: size.width * .1,
                     child: Container(
                       height: 40,
                       width: 40,
@@ -77,8 +106,8 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                       child: const Icon(Icons.favorite),
                     )),
                 Positioned(
-                    bottom: 10,
-                    left: 30,
+                    bottom: size.height * .76,
+                    left: size.width * .1,
                     child: Container(
                       height: 40,
                       width: 40,
@@ -238,19 +267,23 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
           ],
         ),
         bottomNavigationBar: BottomAppBar(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: OverflowBar(
-              overflowAlignment: OverflowBarAlignment.center,
-              children: <Widget>[
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text("data"),
-                    const Spacer(),
-                    ElevatedButton(onPressed: () {}, child: const FlutterLogo())
-                  ],
+          color: Colors
+              .white70, // Changes the background color of the BottomAppBar
+          elevation: 10, // Adds shadow to the BottomAppBar
+          shape:
+              const CircularNotchedRectangle(), // Makes the BottomAppBar circular and notched
+          child: Container(
+            height: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "\$5.00 ",
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 17.sp),
                 ),
+                Spacer(),
+                OutlinedButton(onPressed: () {}, child: Text("Add to Cart"))
               ],
             ),
           ),
