@@ -1,7 +1,10 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CounterWidget extends StatefulWidget {
+  const CounterWidget({super.key});
+
   @override
   _CounterWidgetState createState() => _CounterWidgetState();
 }
@@ -26,7 +29,7 @@ class _CounterWidgetState extends State<CounterWidget> {
     return Container(
       decoration: BoxDecoration(
         // border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -39,24 +42,27 @@ class _CounterWidgetState extends State<CounterWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 50.0,
-                    height: 30.0,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10.0),
-                        bottomLeft: Radius.circular(10.0),
+                      width: 50.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10.0.r),
+                          bottomLeft: Radius.circular(10.0.r),
+                        ),
+                        color: Colors.green,
                       ),
-                      color: Colors.grey[200],
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.remove),
-                      color: Colors.grey,
-                      onPressed: _decrementCount,
-                    ),
-                  ),
+                      child: GestureDetector(
+                        onTap: () {
+                          _decrementCount();
+                        },
+                        child: const Icon(
+                          Icons.remove,
+                          color: Colors.white,
+                        ),
+                      )),
                   Container(
-                    width: 50.0,
-                    height: 30.0,
+                    width: 50.w,
+                    height: 30.h,
                     alignment: Alignment.center,
                     decoration: const BoxDecoration(
                       border: Border(
@@ -70,53 +76,50 @@ class _CounterWidgetState extends State<CounterWidget> {
                     ),
                   ),
                   Container(
-                    width: 50.0,
-                    height: 30.0,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10.0),
-                        bottomRight: Radius.circular(10.0),
+                      width: 50.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10.0.r),
+                          bottomRight: Radius.circular(10.0.r),
+                        ),
+                        color: Colors.green,
                       ),
-                      color: Colors.grey[200],
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.add),
-                      color: Colors.grey,
-                      onPressed: _incrementCount,
-                    ),
-                  ),
+                      child: GestureDetector(
+                        onTap: () {
+                          _incrementCount();
+                        },
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      )),
                 ],
               ),
             ),
-            const SizedBox(height: 10.0),
+            SizedBox(height: 10.h),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 12.0),
                 backgroundColor: AppConst.appGreenColor,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10.0),
-                    bottomRight: Radius.circular(10.0),
-                  ),
-                ),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.r))),
               ),
-              child: const Text('Buy Now'),
+              child:
+                  const Text('Buy Now', style: TextStyle(color: Colors.white)),
             ),
-            const SizedBox(height: 10.0),
+            SizedBox(height: 10.h),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 12.0),
-                primary: Colors.blue,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10.0),
-                    bottomRight: Radius.circular(10.0),
-                  ),
-                ),
+                padding: EdgeInsets.symmetric(vertical: 12.h),
+                backgroundColor: Colors.blue,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.r))),
               ),
-              child: const Text('Add to Cart'),
+              child: const Text('Add to Cart',
+                  style: TextStyle(color: Colors.white)),
             ),
           ],
         ),

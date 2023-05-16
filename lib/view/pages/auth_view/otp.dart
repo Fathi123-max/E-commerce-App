@@ -56,9 +56,9 @@ class _OtpState extends State<Otp> with SingleTickerProviderStateMixin {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        brightness: Brightness.dark,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: ScrollConfiguration(
         behavior: MyBehavior(),

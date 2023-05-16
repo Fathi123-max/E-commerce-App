@@ -1,12 +1,15 @@
-import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/view/pages/product_view/review.dart';
-import 'package:e_commerce_app/view/pages/catogry_view/catogry_screen_product.dart';
 import 'package:e_commerce_app/view/pages/product_view/counter_for_product_page.dart';
 import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
+import 'package:e_commerce_app/view/pages/product_view/review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../constatnt/const_color.dart';
+import 'product_card_view.dart';
+
 class ProductPage8 extends StatefulWidget {
+  const ProductPage8({super.key});
+
   @override
   State<ProductPage8> createState() => _ProductPage8State();
 }
@@ -36,8 +39,8 @@ class _ProductPage8State extends State<ProductPage8>
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget quam in elit finibus semper. Integer tristique dolor eget neque vehicula suscipit. Sed id tellus sed mauris accumsan rutrum. Vestibulum in nisl eros. Integer blandit orci eu ipsum maximus, id posuere lacus elementum. Nunc lacinia, mauris ac aliquam ultrices, nibh nibh gravida risus, quis tincidunt libero purus ac nisl. Proin at mollis magna, ut porttitor lorem. Sed nec odio eget lacus posuere dictum vel quis elit. Fusce vestibulum laoreet augue in gravida. Nullam varius malesuada nibh sit amet pellentesque.',
     style: TextStyle(
       color: Colors.grey[700],
-      fontSize: 14,
-      height: 1.5,
+      fontSize: 14.sp,
+      height: 1.5.h,
     ),
   );
   int _selectedIndex = 0;
@@ -52,20 +55,22 @@ class _ProductPage8State extends State<ProductPage8>
   var color = AppConst.appwhiteColor;
   var color2 = AppConst.appwhiteColor;
 
-  Widget categoryChip(String text, var onTap, Color color) {
+  var colors = AppConst.appwhiteColor;
+
+  var colorl = AppConst.appwhiteColor;
+  var colorxl = AppConst.appwhiteColor;
+  var colorm = AppConst.appwhiteColor;
+  Widget categoryChip(String text, var onTap, Color color, Color ColotText) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
           border: Border.all(color: Colors.grey),
         ),
-        child: Text(
-          text,
-          style: const TextStyle(fontSize: 16),
-        ),
+        child: Text(text, style: TextStyle(fontSize: 16.sp, color: ColotText)),
       ),
     );
   }
@@ -91,9 +96,6 @@ class _ProductPage8State extends State<ProductPage8>
         child: DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Product Page"),
-        ),
         extendBody: true,
         body: SingleChildScrollView(
           child: Column(
@@ -101,8 +103,8 @@ class _ProductPage8State extends State<ProductPage8>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
-                  height: 360,
-                  child: ProductPhotos(
+                  height: 360.h,
+                  child: const ProductPhotos(
                     images: [
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
@@ -116,10 +118,10 @@ class _ProductPage8State extends State<ProductPage8>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Text(
+                      Text(
                         'Product Name',
                         style: TextStyle(
-                          fontSize: 32,
+                          fontSize: 32.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                           decoration: TextDecoration.none,
@@ -132,17 +134,17 @@ class _ProductPage8State extends State<ProductPage8>
                           Text(
                             'Price : ',
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.bold,
                               color: Colors.orange[800],
                               decoration: TextDecoration.none,
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          const Text(
+                          Text(
                             '50\$',
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 24.sp,
                               fontWeight: FontWeight.bold,
                               color: AppConst.appwhiteColor,
                               decoration: TextDecoration.none,
@@ -152,11 +154,10 @@ class _ProductPage8State extends State<ProductPage8>
                         ],
                       ),
                       SizedBox(height: 16.h),
-                      SizedBox(height: 16.h),
                       Text(
                         'Product code :   25154',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.normal,
                           color: Colors.grey[600],
                           decoration: TextDecoration.none,
@@ -164,10 +165,10 @@ class _ProductPage8State extends State<ProductPage8>
                         ),
                       ),
                       SizedBox(height: 8.h),
-                      const Text(
+                      Text(
                         'Description',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                           decoration: TextDecoration.none,
@@ -175,10 +176,10 @@ class _ProductPage8State extends State<ProductPage8>
                         ),
                       ),
                       SizedBox(height: 8.h),
-                      const Text(
+                      Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce faucibus volutpat neque, sit amet cursus magna efficitur sit amet. Nullam blandit bibendum ipsum in tincidunt. Nunc condimentum auctor mi, eget facilisis ante tempor eu. Integer hendrerit sem sed turpis commodo, in consectetur nisi hendrerit. Morbi varius sagittis ipsum sit amet ultrices. Nulla ornare est sit amet venenatis sollicitudin. Etiam elementum nisi nisl, ac mattis leo aliquam eget. Vivamus vitae libero id lectus placerat auctor ut et arcu. Sed vel quam ut lacus ullamcorper rhoncus. Donec scelerisque purus sed est maximus, eu fringilla justo dictum. Duis ac elit vel elit sodales vulputate ut eget justo. Suspendisse eleifend augue eget nisi fringilla blandit.',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.normal,
                           color: Colors.black,
                           decoration: TextDecoration.none,
@@ -194,10 +195,10 @@ class _ProductPage8State extends State<ProductPage8>
                                 visible: _isContainerVisible,
                                 child: Container(
                                   height: 120.h,
-                                  width: 110,
+                                  width: 110.w,
                                   decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(30)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(30.r)),
                                       image: DecorationImage(
                                           image: NetworkImage(
                                               photos[_selectedIndex]),
@@ -222,10 +223,10 @@ class _ProductPage8State extends State<ProductPage8>
                           ], */
                             ]),
                       ),
-                      const Text(
+                      Text(
                         'Color :',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                           decoration: TextDecoration.none,
@@ -235,44 +236,90 @@ class _ProductPage8State extends State<ProductPage8>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: 50,
-                            child: categoryChip("Red", () {
-                              setState(() {
-                                _selectedIndex = 0;
-                                _isContainerVisible = true;
-                                color2 = AppConst.appGreenColor;
-                                color = AppConst.appwhiteColor;
-                              });
-                            }, color2),
-                          ),
-                          SizedBox(
-                            height: 50,
-                            child: categoryChip("white", () {
-                              setState(() {
-                                _selectedIndex = 1;
-                                _isContainerVisible = true;
-                                color = AppConst.appGreenColor;
-                                color2 = AppConst.appwhiteColor;
-                              });
-                            }, color),
-                          ),
+                          categoryChip("Red", () {
+                            setState(() {
+                              _selectedIndex = 0;
+                              _isContainerVisible = true;
+                              color2 = AppConst.appGreenColor;
+                              color = AppConst.appwhiteColor;
+                            });
+                          }, color2, Colors.black),
+                          categoryChip("white", () {
+                            setState(() {
+                              _selectedIndex = 1;
+                              _isContainerVisible = true;
+                              color = AppConst.appGreenColor;
+                              color2 = AppConst.appwhiteColor;
+                            });
+                          }, color, Colors.black),
                         ],
                       ),
                       SizedBox(
                         height: 8.h,
                       ),
-                      CounterWidget()
+                      Text(
+                        'Size :',
+                        style: TextStyle(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          decoration: TextDecoration.none,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          categoryChip("S", () {
+                            setState(() {
+                              colors = AppConst.appGreenColor;
+
+                              colorl = AppConst.appwhiteColor;
+                              colorxl = AppConst.appwhiteColor;
+                              colorm = AppConst.appwhiteColor;
+                            });
+                          }, colors, Colors.black),
+                          categoryChip("M", () {
+                            setState(() {
+                              colors = AppConst.appwhiteColor;
+
+                              colorl = AppConst.appwhiteColor;
+                              colorxl = AppConst.appwhiteColor;
+                              colorm = AppConst.appGreenColor;
+                            });
+                          }, colorm, Colors.black),
+                          categoryChip("L", () {
+                            setState(() {
+                              colors = AppConst.appwhiteColor;
+
+                              colorl = AppConst.appGreenColor;
+                              colorxl = AppConst.appwhiteColor;
+                              colorm = AppConst.appwhiteColor;
+                            });
+                          }, colorl, Colors.black),
+                          categoryChip("XL", () {
+                            setState(() {
+                              colors = AppConst.appwhiteColor;
+
+                              colorl = AppConst.appwhiteColor;
+                              colorxl = AppConst.appGreenColor;
+                              colorm = AppConst.appwhiteColor;
+                            });
+                          }, colorxl, Colors.black),
+                        ],
+                      ),
+                      SizedBox(height: 8.h),
+                      const CounterWidget()
                     ],
                   ),
                 ),
-                SizedBox(height: 16.h),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
+                SizedBox(height: 8.h),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Categories :',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                       decoration: TextDecoration.none,
@@ -287,120 +334,122 @@ class _ProductPage8State extends State<ProductPage8>
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        categoryChip(
-                            'Smart Watch', () {}, AppConst.appRedColor),
-                        const SizedBox(width: 8),
-                        categoryChip(
-                            'Apple Watch', () {}, AppConst.appRedColor),
-                        const SizedBox(width: 8),
-                        categoryChip(
-                            'Men\'s Watch', () {}, AppConst.appRedColor),
-                        const SizedBox(width: 8),
-                        categoryChip(
-                            'Women\'s Watch', () {}, AppConst.appRedColor),
+                        categoryChip('Smart Watch ', () {},
+                            AppConst.appGreenColor, Colors.white),
+                        SizedBox(width: 8.w),
+                        categoryChip('Apple Watch', () {},
+                            AppConst.appGreenColor, Colors.white),
+                        SizedBox(width: 8.w),
+                        categoryChip('Men\'s Watch', () {},
+                            AppConst.appGreenColor, Colors.white),
+                        SizedBox(width: 8.w),
+                        categoryChip('Women\'s Watch', () {},
+                            AppConst.appGreenColor, Colors.white),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
                 SizedBox(
-                  height: 450,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppConst.appwhiteColor,
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const SizedBox(
-                          height: 40,
-                          child: TabBar(
-                            tabs: [
-                              Text("Product Details"),
-                              Text("Review"),
-                            ],
-                            labelStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            unselectedLabelStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                            ),
-                            labelColor: Colors.black,
-                            unselectedLabelColor: Colors.grey,
-                            indicatorColor: Colors.black,
-                            indicatorSize: TabBarIndicatorSize.tab,
-                            indicatorWeight: 2.0,
+                  height: 15.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15.h),
+                  child: SizedBox(
+                    height: 450.h,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppConst.appwhiteColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
                           ),
-                        ),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        Expanded(
-                          child: SizedBox(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: TabBarView(
-                                children: [
-                                  description,
-                                  const ReviewWidget(),
-                                ],
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          SizedBox(
+                            height: 40.h,
+                            child: TabBar(
+                              tabs: const [
+                                Text("Product Details"),
+                                Text("Review"),
+                              ],
+                              labelStyle: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              unselectedLabelStyle: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              labelColor: Colors.black,
+                              unselectedLabelColor: Colors.grey,
+                              indicatorColor: Colors.black,
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              indicatorWeight: 2.0,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 16.h,
+                          ),
+                          Expanded(
+                            child: SizedBox(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: TabBarView(
+                                  children: [
+                                    description,
+                                    const ReviewWidget(),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    height: 100,
+                    height: 100.h,
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppConst.appRedColor,
+                        backgroundColor: AppConst.appGreenColor,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(30.0),
                             topLeft: Radius.circular(30.0),
-                            topRight: Radius.circular(30.0),
                           ),
                         ),
                       ),
-                      child: const Text(
+                      child: Text(
                         'Have You Seen These Products?',
                         style: TextStyle(
                           color: AppConst.appwhiteColor,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 18.sp,
                         ),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
+                SizedBox(height: 50.h),
                 Column(
                   children: [
                     Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                           child: ProductWidget(
                             imageUrl:
                                 'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
@@ -409,8 +458,8 @@ class _ProductPage8State extends State<ProductPage8>
                             name: 'Product 1',
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
+                        SizedBox(width: 8.w),
+                        const Expanded(
                           child: ProductWidget(
                             imageUrl:
                                 'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
@@ -424,7 +473,7 @@ class _ProductPage8State extends State<ProductPage8>
                     SizedBox(height: 8.h),
                     Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                           child: ProductWidget(
                             imageUrl:
                                 'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
@@ -433,8 +482,8 @@ class _ProductPage8State extends State<ProductPage8>
                             name: 'Product 3',
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
+                        SizedBox(width: 8.w),
+                        const Expanded(
                           child: ProductWidget(
                             imageUrl:
                                 'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',

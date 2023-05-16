@@ -11,7 +11,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  List<String> _items = [
+  final List<String> _items = [
     'Item 1',
     'Item 2',
     'Item 3',
@@ -49,7 +49,7 @@ class _CartPageState extends State<CartPage> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               color: Colors.red,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.delete,
                                 color: AppConst.appwhiteColor,
                               ),

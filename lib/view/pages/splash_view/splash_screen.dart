@@ -103,7 +103,7 @@ class SecondPageState extends State<SecondPage> {
                       ? 200
                       : 20,
               decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage("assets/images/Logo.png"),
                   ),
                   color: _b ? AppConst.appwhiteColor : Colors.transparent,

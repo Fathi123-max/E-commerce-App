@@ -4,6 +4,7 @@ import 'package:e_commerce_app/view/pages/home_view/home_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class custom_login extends StatefulWidget {
@@ -13,159 +14,152 @@ class custom_login extends StatefulWidget {
   _custom_loginState createState() => _custom_loginState();
 }
 
-class _custom_loginState extends State<custom_login>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _opacity;
-  late Animation<double> _transform;
-
+class _custom_loginState extends State<custom_login> {
   bool seex = false;
 
   String seey = "false";
 
   @override
-  void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    );
-
-    _opacity = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.ease,
-      ),
-    )..addListener(() {
-        setState(() {});
-      });
-
-    _transform = Tween<double>(begin: 2, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.fastLinearToSlowEaseIn,
-      ),
-    );
-
-    _controller.forward();
-    super.initState();
-  }
+  void initState() {}
 
   @override
   void dispose() {
-    _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return ScrollConfiguration(
-      behavior: MyBehavior(),
-      child: SizedBox(
-        height: size.height,
+    return SizedBox(
+      height: size.height,
+      child: Container(
+        alignment: Alignment.center,
         child: Container(
-          alignment: Alignment.center,
-          child: Opacity(
-            opacity: _opacity.value,
-            child: Transform.scale(
-              scale: _transform.value,
-              child: Container(
-                width: size.width * .9,
-                height: size.width * 1.1,
-                decoration: BoxDecoration(
-                  color: AppConst.appwhiteColor,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.1),
-                      blurRadius: 90,
+          width: size.width * .9.w,
+          height: size.width * 1.1.h,
+          decoration: BoxDecoration(
+            color: AppConst.appwhiteColor,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(.1),
+                blurRadius: 90,
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          icon: const Icon(Icons.close))
+                    ],
+                  ),
+                  const SizedBox(),
+                  Text(
+                    'Sign In',
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black.withOpacity(.7),
                     ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const SizedBox(),
-                    Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black.withOpacity(.7),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: component1(
+                        Icons.email_outlined, 'Enter Email', false, true),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child:
+                        component1(Icons.lock_outline, "Password", true, false),
+                  ),
+                  Text(
+                    'OR',
+                    style: TextStyle(
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black.withOpacity(.7),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: component1(Icons.phone_android_outlined,
+                        'Enter Phone Number', false, true),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 8.h,
                       ),
-                    ),
-                    const SizedBox(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: component1(Icons.email_outlined,
-                          'Enter Email Or Phone Number', false, true),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Visibility(
-                          visible: seex,
-                          child: component1(
-                              Icons.lock_outline, seey, true, false)),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: component2(
-                            'LOGIN',
-                            2.6,
-                            () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ));
-                              HapticFeedback.lightImpact();
-                              Fluttertoast.showToast(
-                                  msg: 'Login button pressed');
-                            },
-                          ),
-                        ),
-                        SizedBox(width: size.width / 25),
-                        Container(
-                          width: size.width / 3.5,
-                          alignment: Alignment.center,
-                          child: RichText(
-                            text: TextSpan(
-                              text: 'Forgotten password!',
-                              style: const TextStyle(color: Colors.blueAccent),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Fluttertoast.showToast(
-                                    msg: 'Forgotten password! button pressed',
-                                  );
-                                },
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Create a new Account',
-                        style: const TextStyle(
-                          color: Colors.blueAccent,
-                          fontSize: 15,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: component2(
+                          'LOGIN',
+                          2.6,
+                          () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const SingUpPage()));
-
-                            Fluttertoast.showToast(
-                              msg: 'Create a new Account button pressed',
-                            );
+                              builder: (context) => const HomePage(),
+                            ));
+                            HapticFeedback.lightImpact();
+                            Fluttertoast.showToast(msg: 'Login button pressed');
                           },
+                        ),
                       ),
+                      SizedBox(
+                        height: 30.h,
+                      ),
+                      Container(
+                        width: size.width,
+                        alignment: Alignment.center,
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'Forgotten password!',
+                            style: const TextStyle(color: Colors.blueAccent),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Fluttertoast.showToast(
+                                  msg: 'Forgotten password! button pressed',
+                                );
+                              },
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Create a new Account',
+                      style: const TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 15,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SingUpPage()));
+
+                          Fluttertoast.showToast(
+                            msg: 'Create a new Account button pressed',
+                          );
+                        },
                     ),
-                    const SizedBox(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(),
+                ],
               ),
             ),
           ),
@@ -243,7 +237,7 @@ class _custom_loginState extends State<custom_login>
       onTap: voidCallback,
       child: Container(
         height: size.width / 8,
-        width: size.width / width,
+        width: size.width,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.green,
@@ -256,16 +250,5 @@ class _custom_loginState extends State<custom_login>
         ),
       ),
     );
-  }
-}
-
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-    BuildContext context,
-    Widget child,
-    AxisDirection axisDirection,
-  ) {
-    return child;
   }
 }

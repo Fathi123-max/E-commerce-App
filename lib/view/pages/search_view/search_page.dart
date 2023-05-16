@@ -1,14 +1,16 @@
-import 'package:e_commerce_app/view/pages/catogry_view/catogry_screen_product.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
-  List<String> _categories = [
+  final List<String> _categories = [
     'All',
     'Electronics',
     'Clothing',
@@ -75,7 +77,7 @@ class _SearchPageState extends State<SearchPage> {
                   shrinkWrap: true,
                   itemCount: 20,
                   itemBuilder: (context, index) {
-                    return Row(
+                    return const Row(
                       children: [
                         Expanded(
                           child: ProductWidget(

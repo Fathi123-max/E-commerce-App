@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CategoryProductsPage extends StatefulWidget {
   final String categoryName;
 
-  CategoryProductsPage({required this.categoryName});
+  const CategoryProductsPage({super.key, required this.categoryName});
 
   @override
   _CategoryProductsPageState createState() => _CategoryProductsPageState();
@@ -25,8 +25,8 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
               MediaQuery.of(context).orientation == Orientation.portrait
                   ? 2
                   : 4,
-          crossAxisSpacing: MediaQuery.of(context).size.width * 0.05,
-          mainAxisSpacing: MediaQuery.of(context).size.height * 0.25,
+          crossAxisSpacing: MediaQuery.of(context).size.width * 0.05.w,
+          mainAxisSpacing: MediaQuery.of(context).size.height * 0.25.h,
         ),
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
@@ -34,17 +34,17 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => CategoryProductsPage(
+                  builder: (context) => const CategoryProductsPage(
                     categoryName: 'CategoryName',
                   ),
                 ),
               );
             },
             child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
+              margin: EdgeInsets.symmetric(vertical: 8.0.h),
               decoration: BoxDecoration(
                 color: AppConst.appwhiteColor,
-                borderRadius: BorderRadius.circular(16.0),
+                borderRadius: BorderRadius.circular(16.0.r),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),
@@ -58,20 +58,20 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(16.0),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.0.r),
+                      topRight: Radius.circular(16.0.r),
                     ),
                     child: Image.network(
                       'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
-                      height: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.width * 0.4.h,
                       fit: BoxFit.cover,
                     ),
                   ),
                   SizedBox(height: 16.h),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.05,
+                      horizontal: MediaQuery.of(context).size.width * 0.05.w,
                     ),
                     child: const Text(
                       'CategoryName',
@@ -90,7 +90,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                     child: Text(
                       '100 Products',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 16.0.sp,
                         color: Colors.grey[600],
                       ),
                     ),

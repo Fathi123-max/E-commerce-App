@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  List<String> _controllers = [
+  final List<String> _controllers = [
     'My Account',
     'Last Purchase Products',
   ];
@@ -40,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             SizedBox(height: 16.h),
                             Text(
                               'Account Information',
-                              style: Theme.of(context).textTheme.headline6,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                             SizedBox(height: 16.h),
                             const ListTile(
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             SizedBox(height: 16.h),
                             Text(
                               'My Orders',
-                              style: Theme.of(context).textTheme.headline6,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                             SizedBox(height: 16.h),
                             ListView.builder(
@@ -112,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             SizedBox(height: 16.h),
                             Text(
                               'Account and Purchases Controllers',
-                              style: Theme.of(context).textTheme.headline6,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                             SizedBox(height: 16.h),
                             ListView.builder(

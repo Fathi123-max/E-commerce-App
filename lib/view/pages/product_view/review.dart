@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewWidget extends StatelessWidget {
   const ReviewWidget({super.key});
@@ -53,7 +54,7 @@ class ReviewWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.grey, borderRadius: BorderRadius.circular(30)),
+                color: Colors.grey, borderRadius: BorderRadius.circular(30.r)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(

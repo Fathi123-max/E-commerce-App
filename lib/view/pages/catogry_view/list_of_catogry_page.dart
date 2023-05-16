@@ -4,13 +4,15 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../../../constatnt/const_color.dart';
 
 class ListOfCatogry extends StatelessWidget {
+  const ListOfCatogry({super.key});
+
   @override
   Widget build(BuildContext context) {
-    double _w = MediaQuery.of(context).size.width;
+    double w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: AnimationLimiter(
         child: ListView.builder(
-          padding: EdgeInsets.all(_w / 30),
+          padding: EdgeInsets.all(w / 30),
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
           itemCount: 20,
@@ -24,8 +26,8 @@ class ListOfCatogry extends StatelessWidget {
                 horizontalOffset: 30,
                 verticalOffset: 300.0,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: _w / 20),
-                  height: _w / 3,
+                  margin: EdgeInsets.only(bottom: w / 20),
+                  height: w / 3,
                   decoration: BoxDecoration(
                     color: AppConst.appwhiteColor,
                     borderRadius: const BorderRadius.all(
@@ -73,7 +75,7 @@ class ListOfCatogry extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppConst.appwhiteColor,
                 fontWeight: FontWeight.bold,
               ),

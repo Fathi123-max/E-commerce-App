@@ -7,7 +7,7 @@ import '../../../constatnt/const_color.dart';
 class ProductPhotos extends StatefulWidget {
   final List<String> images;
 
-  ProductPhotos({required this.images, required this.thumb});
+  const ProductPhotos({super.key, required this.images, required this.thumb});
   final bool thumb;
   @override
   _ProductPhotosState createState() => _ProductPhotosState();
@@ -25,11 +25,15 @@ class _ProductPhotosState extends State<ProductPhotos> {
   @override
   Widget build(BuildContext context) {
     List<Widget> photos = widget.images
-        .map((image) => Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(image),
-                  fit: BoxFit.cover,
+        .map((image) => Padding(
+              padding: EdgeInsets.all(15.h),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  image: DecorationImage(
+                    image: NetworkImage(image),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ))
@@ -45,7 +49,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0.r),
                   child: Image.network(
                     image,
                     fit: BoxFit.cover,
@@ -69,7 +73,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
                   key: _sliderKey,
                   items: photos,
                   options: CarouselOptions(
-                    height: 300.h,
+                    height: 250.h,
                     clipBehavior: Clip.antiAlias,
                     autoPlay: true,
                     enlargeCenterPage: false,
@@ -84,11 +88,11 @@ class _ProductPhotosState extends State<ProductPhotos> {
           ),
           widget.thumb
               ? Align(
-                  alignment: Alignment.bottomCenter,
+                  alignment: Alignment.bottomLeft,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: thumbnails,
                     ),
                   ),

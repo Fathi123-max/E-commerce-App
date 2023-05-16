@@ -1,5 +1,4 @@
-import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/view/pages/catogry_view/catogry_screen_product.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_card_view.dart';
 import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +21,8 @@ class _HomePageBodyState extends State<HomePageBody> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return AnimationLimiter(
       child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(
@@ -37,60 +38,64 @@ class _HomePageBodyState extends State<HomePageBody> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Container(
+                    margin: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: .05.h),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search  product   ...',
+                        hintStyle: const TextStyle(color: Colors.grey),
+                        suffixIcon: Padding(
+                          padding: EdgeInsets.all(4.0.h),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.black87,
+                                  borderRadius: BorderRadius.circular(5.r)),
+                              child: const Icon(
+                                Icons.search,
+                                color: Colors.white,
+                              )),
+                        ),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                   SizedBox(
-                    height: 310.h,
-                    child: ProductPhotos(images: const [
+                    height: 250.h,
+                    child: const ProductPhotos(images: [
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                     ], thumb: false),
-                  ),
-                  Container(
-                    height: 80.h,
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                              image: const DecorationImage(
-                                image: NetworkImage(
-                                    'https://cdn.pixabay.com/photo/2014/12/26/18/04/castle-580610_960_720.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                              image: const DecorationImage(
-                                image: NetworkImage(
-                                    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                   SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
                         child: Text(
                           'Catogries',
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
+                              fontSize: 17.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
+                      const Spacer(),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        child: Text(
+                          "View All ->",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
                     ],
                   ),
                   SizedBox(height: 10.h),
@@ -129,57 +134,38 @@ class _HomePageBodyState extends State<HomePageBody> {
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Featured Products',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        child: Text(
+                          'Friday Sale',
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
+                              fontSize: 17.sp, fontWeight: FontWeight.bold),
                         ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black,
-                            backgroundColor: Colors.grey[200],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0.r),
-                              side: BorderSide(color: Colors.grey[300]!),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 12.0),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'View All',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12.0.sp,
-                                ),
-                              ),
-                              SizedBox(width: 8.0.w),
-                              Icon(
-                                Icons.arrow_forward,
-                                size: 12.0,
-                              ),
-                            ],
-                          ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        child: Text(
+                          "View All ->",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold),
                         ),
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                   SizedBox(height: 10.h),
-                  Container(
+                  SizedBox(
                     height: 200.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (BuildContext context, int index) {
-                        return ProductWidget(
+                        return const ProductWidget(
                           imageUrl:
                               '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
                           price: 49.99,
@@ -190,48 +176,29 @@ class _HomePageBodyState extends State<HomePageBody> {
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        child: Text(
                           'Popular Products',
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
+                              fontSize: 17.sp, fontWeight: FontWeight.bold),
                         ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black,
-                            backgroundColor: Colors.grey[200],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0.r),
-                              side: BorderSide(color: Colors.grey[300]!),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 12.0),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'View All',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12.0.sp,
-                                ),
-                              ),
-                              SizedBox(width: 8.0.w),
-                              const Icon(
-                                Icons.arrow_forward,
-                                size: 12.0,
-                              ),
-                            ],
-                          ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
+                        child: Text(
+                          "View All ->",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold),
                         ),
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                   SizedBox(height: 10.h),
                   SizedBox(
@@ -240,7 +207,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (BuildContext context, int index) {
-                        return ProductWidget(
+                        return const ProductWidget(
                           imageUrl:
                               '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
                           price: 49.99,
@@ -256,12 +223,12 @@ class _HomePageBodyState extends State<HomePageBody> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20.h),
                         child: Text(
                           'All Products',
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
+                              fontSize: 17.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -270,31 +237,26 @@ class _HomePageBodyState extends State<HomePageBody> {
                     height: 20.h,
                   ),
                   ListView.builder(
-                    padding: const EdgeInsets.only(left: 10),
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: 20,
                     itemBuilder: (context, index) {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      return const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
-                            child: ProductWidget(
-                              imageUrl:
-                                  '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
-                              price: 49.99,
-                              brand: '',
-                              name: 'Product 1',
-                            ),
+                          ProductWidget(
+                            imageUrl:
+                                '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                            price: 49.99,
+                            brand: '',
+                            name: 'Product 1',
                           ),
-                          Expanded(
-                            child: ProductWidget(
-                              imageUrl:
-                                  '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
-                              price: 39.99,
-                              brand: '',
-                              name: 'Product 2',
-                            ),
+                          ProductWidget(
+                            imageUrl:
+                                '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                            price: 39.99,
+                            brand: '',
+                            name: 'Product 2',
                           ),
                         ],
                       );
@@ -328,16 +290,7 @@ Widget _buildCategoryItem(String title, String image, BuildContext context) {
           borderRadius: BorderRadius.circular(10.r),
           color: Colors.black.withOpacity(0.5),
         ),
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: AppConst.appwhiteColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        child: Center(child: Column()),
       ),
     ),
   );

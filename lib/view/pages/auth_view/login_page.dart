@@ -63,13 +63,13 @@ class _LoginPageState extends State<LoginPage>
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: ScrollConfiguration(
-        behavior: MyBehavior(),
+        behavior: ScrollBehavior(),
         child: SingleChildScrollView(
           child: SizedBox(
             height: size.height,
             child: Container(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage>
                               2.6,
                               () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => HomePage(),
+                                  builder: (context) => const HomePage(),
                                 ));
                                 HapticFeedback.lightImpact();
                                 Fluttertoast.showToast(
@@ -160,7 +160,7 @@ class _LoginPageState extends State<LoginPage>
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => SingUpPage()));
+                                    builder: (context) => const SingUpPage()));
 
                                 Fluttertoast.showToast(
                                   msg: 'Create a new Account button pressed',
@@ -228,21 +228,10 @@ class _LoginPageState extends State<LoginPage>
         ),
         child: Text(
           string,
-          style: TextStyle(
+          style: const TextStyle(
               color: AppConst.appwhiteColor, fontWeight: FontWeight.w600),
         ),
       ),
     );
-  }
-}
-
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-    BuildContext context,
-    Widget child,
-    AxisDirection axisDirection,
-  ) {
-    return child;
   }
 }

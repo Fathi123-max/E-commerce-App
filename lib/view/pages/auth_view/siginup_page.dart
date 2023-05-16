@@ -1,7 +1,9 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
-import 'package:e_commerce_app/view/pages/home_view/home_page.dart';
+import 'package:e_commerce_app/view/pages/auth_view/otp.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class SingUpPage extends StatefulWidget {
@@ -11,139 +13,162 @@ class SingUpPage extends StatefulWidget {
   _SingUpPageState createState() => _SingUpPageState();
 }
 
-class _SingUpPageState extends State<SingUpPage>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _opacity;
-  late Animation<double> _transform;
-
+class _SingUpPageState extends State<SingUpPage> {
   bool seex = false;
 
   String seey = "false";
 
-  bool seez = false;
   @override
-  void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    );
-
-    _opacity = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.ease,
-      ),
-    )..addListener(() {
-        setState(() {});
-      });
-
-    _transform = Tween<double>(begin: 2, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.fastLinearToSlowEaseIn,
-      ),
-    );
-
-    _controller.forward();
-    super.initState();
-  }
+  void initState() {}
 
   @override
   void dispose() {
-    _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        brightness: Brightness.dark,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: ScrollConfiguration(
-        behavior: MyBehavior(),
-        child: SingleChildScrollView(
-          child: SizedBox(
-            height: size.height,
-            child: Container(
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    AppConst.appGreenColor,
-                    AppConst.appwhiteColor,
-                  ],
+    return Card(
+      child: SizedBox(
+        height: size.height,
+        child: Container(
+          alignment: Alignment.center,
+          child: Container(
+            width: size.width * .9.w,
+            height: size.width * 1.3.h,
+            decoration: BoxDecoration(
+              color: AppConst.appwhiteColor,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(.1),
+                  blurRadius: 90,
                 ),
-              ),
-              child: Opacity(
-                opacity: _opacity.value,
-                child: Transform.scale(
-                  scale: _transform.value,
-                  child: Container(
-                    width: size.width * .9,
-                    height: size.width * 1.1,
-                    decoration: BoxDecoration(
-                      color: AppConst.appwhiteColor,
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(.1),
-                          blurRadius: 90,
-                        ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            icon: const Icon(Icons.close))
                       ],
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    const SizedBox(),
+                    Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black.withOpacity(.7),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: component1(
+                          Icons.person, 'Your full name', false, true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: component1(Icons.email_outlined,
+                          'Enter your email', false, true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: component1(
+                          Icons.phone_android, 'Enter your phone', false, true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: component1(
+                          Icons.lock_outline, "Enter password ", true, true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: component1(Icons.lock_outline,
+                          "Confirm your password", true, true),
+                    ),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(),
-                        Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black.withOpacity(.7),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: component2(
+                            'Sign Up',
+                            2.6,
+                            () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Otp(),
+                              ));
+                              HapticFeedback.lightImpact();
+                              Fluttertoast.showToast(
+                                  msg: 'Login button pressed');
+                            },
                           ),
                         ),
-                        const SizedBox(),
-                        component1(Icons.account_circle_outlined,
-                            'User name...', false, true),
-                        component1(Icons.email_outlined,
-                            'Enter Email Or Phone Number', false, true),
-                        Visibility(
-                            visible: seex,
-                            child: component1(
-                                Icons.lock_outline, seey, true, false)),
-                        Visibility(
-                            visible: seez,
-                            child: component1(Icons.lock_outline,
-                                "${seey} Again", true, false)),
+                        SizedBox(
+                          height: 8.w,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            component2(
-                              'SignUp',
-                              2.6,
-                              () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
-                                ));
-                                HapticFeedback.lightImpact();
-                                Fluttertoast.showToast(
-                                    msg: 'Login button pressed');
-                              },
+                            RichText(
+                              text: TextSpan(
+                                text: 'Already have an account?',
+                                style: TextStyle(
+                                    color: Colors.blueAccent, fontSize: 13.sp),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Fluttertoast.showToast(
+                                      msg: 'Forgotten password! button pressed',
+                                    );
+                                  },
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8.w,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                text: 'Login Now',
+                                style: TextStyle(
+                                    color: Colors.green, fontSize: 13.sp),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const SingUpPage()));
+
+                                    Fluttertoast.showToast(
+                                      msg:
+                                          'Create a new Account button pressed',
+                                    );
+                                  },
+                              ),
                             ),
                           ],
-                        ),
+                        )
                       ],
                     ),
-                  ),
+                    const SizedBox(),
+                  ],
                 ),
               ),
             ),
@@ -154,7 +179,7 @@ class _SingUpPageState extends State<SingUpPage>
   }
 
   Widget component1(
-      IconData icon, String hintText, bool isPassword, bool isname) {
+      IconData icon, String hintText, bool isPassword, bool isEmail) {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.width / 8,
@@ -168,7 +193,8 @@ class _SingUpPageState extends State<SingUpPage>
       child: TextField(
         style: TextStyle(color: Colors.black.withOpacity(.8)),
         obscureText: isPassword,
-        keyboardType: isname ? TextInputType.name : TextInputType.phone,
+        keyboardType:
+            isEmail ? TextInputType.emailAddress : TextInputType.phone,
         decoration: InputDecoration(
           prefixIcon: Icon(
             icon,
@@ -181,12 +207,10 @@ class _SingUpPageState extends State<SingUpPage>
               TextStyle(fontSize: 14, color: Colors.black.withOpacity(.5)),
         ),
         onSubmitted: (value) {
-          if (isname) {
+          if (isEmail) {
             if (isValidEmail(value)) {
               setState(() {
                 seex = true;
-                seez = true;
-
                 seey = "Password";
               });
             } else {
@@ -197,7 +221,6 @@ class _SingUpPageState extends State<SingUpPage>
             setState(() {
               seey = "Enter OTP";
               seex = true;
-              seez = false;
             });
           } else {
             // Do something with invalid phone number
@@ -224,10 +247,10 @@ class _SingUpPageState extends State<SingUpPage>
       onTap: voidCallback,
       child: Container(
         height: size.width / 8,
-        width: size.width / width,
+        width: size.width,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: const Color(0xff4796ff),
+          color: Colors.green,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
@@ -237,16 +260,5 @@ class _SingUpPageState extends State<SingUpPage>
         ),
       ),
     );
-  }
-}
-
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-    BuildContext context,
-    Widget child,
-    AxisDirection axisDirection,
-  ) {
-    return child;
   }
 }

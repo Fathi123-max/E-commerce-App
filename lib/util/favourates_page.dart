@@ -19,10 +19,10 @@ class FavoritePage extends StatelessWidget {
                   width: 50,
                   fit: BoxFit.cover,
                 ),
-                title: Text('Product Name'),
-                subtitle: Text('Product Description'),
+                title: const Text('Product Name'),
+                subtitle: const Text('Product Description'),
                 trailing: IconButton(
-                  icon: Icon(Icons.favorite),
+                  icon: const Icon(Icons.favorite),
                   color: Colors.red,
                   onPressed: () {
                     // TODO: Remove item from favorites
