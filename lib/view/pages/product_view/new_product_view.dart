@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,6 +46,15 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
 
 // [SliverAppBar]s are typically used in [CustomScrollView.slivers], which in
 // turn can be placed in a [Scaffold.body].
+
+  var color = AppConst.appwhiteColor;
+  var color2 = AppConst.appwhiteColor;
+
+  var colors = AppConst.appwhiteColor;
+
+  var colorl = AppConst.appwhiteColor;
+  var colorxl = AppConst.appwhiteColor;
+  var colorm = AppConst.appwhiteColor;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -52,30 +62,12 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
             onPressed: () {},
+            heroTag: null,
             child: Stack(
               children: [
                 FloatingActionButton(
                   onPressed: () {},
                   child: const Icon(Icons.shopping_cart),
-                ),
-                Positioned(
-                  right: 5,
-                  top: 5,
-                  child: Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      '4',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             )),
@@ -93,9 +85,9 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                     left: 0,
                     right: 0,
                     bottom: size.height * .7,
-                    child: FlutterLogo()),
+                    child: const FlutterLogo()),
                 Positioned(
-                    bottom: size.height * .76,
+                    bottom: size.height * .77,
                     right: size.width * .1,
                     child: Container(
                       height: 40,
@@ -106,7 +98,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                       child: const Icon(Icons.favorite),
                     )),
                 Positioned(
-                    bottom: size.height * .76,
+                    bottom: size.height * .77,
                     left: size.width * .1,
                     child: Container(
                       height: 40,
@@ -119,7 +111,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                 Positioned(
                     left: 0,
                     right: 0,
-                    bottom: 0,
+                    bottom: size.height * .01,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -141,24 +133,61 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                         children: [
                           const SizedBox(height: 10),
                           ListTile(
-                            title: Text(
-                              "Product Name",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.sp,
-                              ),
-                            ),
-                            subtitle: const Wrap(
+                            title: Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  Text(
+                                    "Product Name",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.sp,
+                                    ),
+                                  ),
+                                  SizedBox(width: size.width * .29),
+                                  Container(
+                                    width: 50,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                        color: AppConst.appGreenColor,
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(3.0),
+                                      child: Wrap(
+                                        direction: Axis.vertical,
+                                        children: [
+                                          const Icon(
+                                            Icons.star,
+                                            size: 15,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: size.width * .06,
+                                          ),
+                                          const Text(
+                                            "4.8",
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.white),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ]),
+                            subtitle: Wrap(
                               crossAxisAlignment: WrapCrossAlignment.center,
                               children: [
-                                Icon(Icons.star, color: Colors.amber, size: 18),
-                                Icon(Icons.star, color: Colors.amber, size: 18),
-                                Icon(Icons.star, color: Colors.amber, size: 18),
-                                Icon(Icons.star_border, size: 18),
-                                Icon(Icons.star_border, size: 18),
-                                SizedBox(width: 5),
                                 Text(
-                                  "4.0 (23 Reviews)",
+                                  "Product Name",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.sp,
+                                  ),
+                                ),
+                                SizedBox(width: size.width * .21),
+                                const Text(
+                                  "(23 Reviews)",
                                   style: TextStyle(fontSize: 12),
                                 ),
                               ],
@@ -172,7 +201,64 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Text("Product Description"),
+                                    const Text("Select Size :"),
+                                    SizedBox(
+                                      height: size.height * .01,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          width: size.width * .05,
+                                        ),
+                                        categoryChip("S", () {
+                                          setState(() {
+                                            colors = AppConst.appGreenColor;
+
+                                            colorl = AppConst.appwhiteColor;
+                                            colorxl = AppConst.appwhiteColor;
+                                            colorm = AppConst.appwhiteColor;
+                                          });
+                                        }, colors, Colors.black),
+                                        SizedBox(
+                                          width: size.width * .05,
+                                        ),
+                                        categoryChip("M", () {
+                                          setState(() {
+                                            colors = AppConst.appwhiteColor;
+
+                                            colorl = AppConst.appwhiteColor;
+                                            colorxl = AppConst.appwhiteColor;
+                                            colorm = AppConst.appGreenColor;
+                                          });
+                                        }, colorm, Colors.black),
+                                        SizedBox(
+                                          width: size.width * .05,
+                                        ),
+                                        categoryChip("L", () {
+                                          setState(() {
+                                            colors = AppConst.appwhiteColor;
+
+                                            colorl = AppConst.appGreenColor;
+                                            colorxl = AppConst.appwhiteColor;
+                                            colorm = AppConst.appwhiteColor;
+                                          });
+                                        }, colorl, Colors.black),
+                                        SizedBox(
+                                          width: size.width * .05,
+                                        ),
+                                        categoryChip("XL", () {
+                                          setState(() {
+                                            colors = AppConst.appwhiteColor;
+
+                                            colorl = AppConst.appwhiteColor;
+                                            colorxl = AppConst.appGreenColor;
+                                            colorm = AppConst.appwhiteColor;
+                                          });
+                                        }, colorxl, Colors.black),
+                                      ],
+                                    ),
                                     const SizedBox(height: 10),
                                     Text(
                                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam.",
@@ -282,8 +368,9 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                   style:
                       TextStyle(fontWeight: FontWeight.bold, fontSize: 17.sp),
                 ),
-                Spacer(),
-                OutlinedButton(onPressed: () {}, child: Text("Add to Cart"))
+                const Spacer(),
+                OutlinedButton(
+                    onPressed: () {}, child: const Text("Add to Cart"))
               ],
             ),
           ),
@@ -294,3 +381,17 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
 }
 
 //appbar
+Widget categoryChip(String text, var onTap, Color color, Color ColotText) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10.r),
+        border: Border.all(color: Colors.grey[300]!),
+      ),
+      child: Text(text, style: TextStyle(fontSize: 16.sp, color: ColotText)),
+    ),
+  );
+}
