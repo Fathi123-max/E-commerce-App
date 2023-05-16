@@ -241,7 +241,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                     shrinkWrap: true,
                     itemCount: 20,
                     itemBuilder: (context, index) {
-                      return const Row(
+                      return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ProductWidget(

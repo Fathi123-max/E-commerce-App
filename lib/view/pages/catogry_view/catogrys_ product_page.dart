@@ -64,7 +64,7 @@ class _CatogryPageState extends State<CatogryPage> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: products.length,
                 itemBuilder: (context, index) {
-                  return const Row(
+                  return Row(
                     children: [
                       Expanded(
                         child: ProductWidget(

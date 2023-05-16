@@ -205,22 +205,6 @@ class _ProductPage8State extends State<ProductPage8>
                                           fit: BoxFit.cover)),
                                 ),
                               ),
-
-                              /*
-                      
-                            AnimatedOpacity(
-                              opacity: x2 ? 1.0 : 0.0,
-                              duration:     Duration(milliseconds: 500),
-                              child: SizedBox(
-                                height: 120.h,
-                                width: 100,
-                                child: Image.network(
-                                  photourl,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-                          ], */
                             ]),
                       ),
                       Text(

@@ -187,7 +187,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                   ),
                 ),
                 SizedBox(height: 16.h),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -207,7 +207,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                   ],
                 ),
                 SizedBox(height: 8.h),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -227,7 +227,7 @@ class _ProfilePage8State extends State<ProfilePage8> {
                   ],
                 ),
                 SizedBox(height: 8.h),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(

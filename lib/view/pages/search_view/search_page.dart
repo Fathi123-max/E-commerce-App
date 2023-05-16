@@ -77,7 +77,7 @@ class _SearchPageState extends State<SearchPage> {
                   shrinkWrap: true,
                   itemCount: 20,
                   itemBuilder: (context, index) {
-                    return const Row(
+                    return Row(
                       children: [
                         Expanded(
                           child: ProductWidget(

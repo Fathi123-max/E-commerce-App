@@ -1,6 +1,10 @@
 import 'package:e_commerce_app/constatnt/const_color.dart';
+import 'package:e_commerce_app/view/pages/product_view/product_card_view.dart';
+import 'package:e_commerce_app/view/pages/product_view/review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'new_bottom_sheet.dart';
 
 /// Flutter code sample for [SliverAppBar].
 
@@ -40,21 +44,28 @@ class SliverAppBarExample extends StatefulWidget {
 }
 
 class _SliverAppBarExampleState extends State<SliverAppBarExample> {
-  bool _floating = false;
-  bool _pinned = true;
-  bool _snap = false;
-
 // [SliverAppBar]s are typically used in [CustomScrollView.slivers], which in
 // turn can be placed in a [Scaffold.body].
 
   var color = AppConst.appwhiteColor;
+
   var color2 = AppConst.appwhiteColor;
-
-  var colors = AppConst.appwhiteColor;
-
   var colorl = AppConst.appwhiteColor;
-  var colorxl = AppConst.appwhiteColor;
   var colorm = AppConst.appwhiteColor;
+  var colors = AppConst.appwhiteColor;
+  var colorxl = AppConst.appwhiteColor;
+  int _selectedIndex = 0;
+  bool _isContainerVisible = false;
+  bool _floating = false;
+  bool _pinned = true;
+  bool _snap = false;
+
+  List photos = [
+    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
+  ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -76,18 +87,20 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
             SliverAppBar(
               pinned: _pinned,
               snap: _snap,
-              backgroundColor: Colors.amber,
+              backgroundColor: Colors.white,
               floating: _floating,
-              expandedHeight: size.height * 1.2,
+              expandedHeight: size.height * 2.7,
               flexibleSpace: Stack(children: [
                 Positioned.fill(
                     top: 0,
                     left: 0,
                     right: 0,
-                    bottom: size.height * .7,
-                    child: const FlutterLogo()),
+                    bottom: size.height * 2.15,
+                    child: Image.network(
+                        fit: BoxFit.fill,
+                        'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg')),
                 Positioned(
-                    bottom: size.height * .77,
+                    bottom: size.height * 2.27,
                     right: size.width * .1,
                     child: Container(
                       height: 40,
@@ -98,7 +111,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                       child: const Icon(Icons.favorite),
                     )),
                 Positioned(
-                    bottom: size.height * .77,
+                    bottom: size.height * 2.27,
                     left: size.width * .1,
                     child: Container(
                       height: 40,
@@ -201,7 +214,11 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Text("Select Size :"),
+                                    Text(
+                                      "Select Size :",
+                                      style:
+                                          TextStyle(color: Colors.grey[500]!),
+                                    ),
                                     SizedBox(
                                       height: size.height * .01,
                                     ),
@@ -259,9 +276,19 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                                         }, colorxl, Colors.black),
                                       ],
                                     ),
-                                    const SizedBox(height: 10),
+                                    SizedBox(
+                                      height: size.height * .01,
+                                    ),
                                     Text(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam.",
+                                      "Description :",
+                                      style:
+                                          TextStyle(color: Colors.grey[500]!),
+                                    ),
+                                    SizedBox(
+                                      height: size.height * .01,
+                                    ),
+                                    Text(
+                                      "Lorem ipsum dolor sit amet. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam. Duis pretium metus non mi bibendum eleifend. Suspendisse vel est quam.",
                                       textAlign: TextAlign.justify,
                                       style: TextStyle(
                                         fontSize: 12.sp,
@@ -269,7 +296,11 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                                       ),
                                     ),
                                     const SizedBox(height: 10),
-                                    const Text("Product Price"),
+                                    Text(
+                                      "Product Price :",
+                                      style:
+                                          TextStyle(color: Colors.grey[500]!),
+                                    ),
                                     const SizedBox(height: 5),
                                     Row(
                                       children: [
@@ -289,61 +320,188 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                                       ],
                                     ),
                                     const SizedBox(height: 10),
-                                    const Text("Product Properties"),
-                                    const SizedBox(height: 10),
-                                    const Row(
+                                    Text(
+                                      'Color :',
+                                      style: TextStyle(
+                                        color: Colors.grey[500]!,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.none,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                        categoryChip("Red", () {
+                                          setState(() {
+                                            _selectedIndex = 0;
+                                            _isContainerVisible = true;
+                                            color2 = AppConst.appGreenColor;
+                                            color = AppConst.appwhiteColor;
+                                          });
+                                        }, color2, Colors.black),
+                                        categoryChip("white", () {
+                                          setState(() {
+                                            _selectedIndex = 1;
+                                            _isContainerVisible = true;
+                                            color = AppConst.appGreenColor;
+                                            color2 = AppConst.appwhiteColor;
+                                          });
+                                        }, color, Colors.black),
+                                        const Spacer(),
+                                        Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                "Brand",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                              Visibility(
+                                                visible: _isContainerVisible,
+                                                child: Container(
+                                                  height: 80.h,
+                                                  width: 80.w,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  30.r)),
+                                                      image: DecorationImage(
+                                                          image: NetworkImage(
+                                                              photos[
+                                                                  _selectedIndex]),
+                                                          fit: BoxFit.cover)),
+                                                ),
                                               ),
-                                              SizedBox(height: 5),
-                                              Text("MyBrand"),
-                                            ],
+                                            ]),
+                                      ],
+                                    ),
+                                    SizedBox(height: 8.h),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "Categories:",
+                                        style:
+                                            TextStyle(color: Colors.grey[500]!),
+                                      ),
+                                    ),
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          children: [
+                                            categoryChip(
+                                                'Smart Watch ',
+                                                () {},
+                                                AppConst.appGreenColor,
+                                                Colors.white),
+                                            SizedBox(width: 8.w),
+                                            categoryChip(
+                                                'Apple Watch',
+                                                () {},
+                                                AppConst.appGreenColor,
+                                                Colors.white),
+                                            SizedBox(width: 8.w),
+                                            categoryChip(
+                                                'Men\'s Watch',
+                                                () {},
+                                                AppConst.appGreenColor,
+                                                Colors.white),
+                                            SizedBox(width: 8.w),
+                                            categoryChip(
+                                                'Women\'s Watch',
+                                                () {},
+                                                AppConst.appGreenColor,
+                                                Colors.white),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    const Card(
+                                        child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: ReviewWidget(),
+                                    )),
+                                    SizedBox(height: 8.h),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SizedBox(
+                                        height: 100.h,
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                AppConst.appGreenColor,
+                                            shape: const RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomRight:
+                                                    Radius.circular(30.0),
+                                                topLeft: Radius.circular(30.0),
+                                              ),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'Have You Seen These Products?',
+                                            style: TextStyle(
+                                              color: AppConst.appwhiteColor,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.sp,
+                                            ),
                                           ),
                                         ),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "Condition",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                      ),
+                                    ),
+                                    SizedBox(height: 50.h),
+                                    Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Expanded(
+                                              child: ProductWidget(
+                                                imageUrl:
+                                                    'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                                price: 39.99,
+                                                brand: '',
+                                                name: 'Product 1',
                                               ),
-                                              SizedBox(height: 5),
-                                              Text("New"),
-                                            ],
-                                          ),
+                                            ),
+                                            SizedBox(width: 8.w),
+                                            const Expanded(
+                                              child: ProductWidget(
+                                                imageUrl:
+                                                    'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                                price: 39.99,
+                                                brand: '',
+                                                name: 'Product 2',
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "Quantity",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                        SizedBox(height: 8.h),
+                                        Row(
+                                          children: [
+                                            const Expanded(
+                                              child: ProductWidget(
+                                                imageUrl:
+                                                    'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                                price: 39.99,
+                                                brand: '',
+                                                name: 'Product 3',
                                               ),
-                                              SizedBox(height: 5),
-                                              Text("1 Available"),
-                                            ],
-                                          ),
+                                            ),
+                                            SizedBox(width: 8.w),
+                                            const Expanded(
+                                              child: ProductWidget(
+                                                imageUrl:
+                                                    'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                                price: 39.99,
+                                                brand: '',
+                                                name: 'Product 4',
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
-                                    const SizedBox(height: 20),
                                   ]))
                         ],
                       ),
@@ -370,7 +528,12 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                 ),
                 const Spacer(),
                 OutlinedButton(
-                    onPressed: () {}, child: const Text("Add to Cart"))
+                    onPressed: () {
+                      setState(() {
+                        showButtomSheet(context);
+                      });
+                    },
+                    child: const Text("Add to Cart"))
               ],
             ),
           ),
@@ -393,5 +556,14 @@ Widget categoryChip(String text, var onTap, Color color, Color ColotText) {
       ),
       child: Text(text, style: TextStyle(fontSize: 16.sp, color: ColotText)),
     ),
+  );
+}
+
+// show bottom sheet when "Add to Cart" button is pressed
+void showButtomSheet(context) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    builder: (context) => ProductDetailsWidget(),
   );
 }
