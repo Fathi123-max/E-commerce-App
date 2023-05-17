@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/view/pages/product_view/product_card_view.dart';
 import 'package:e_commerce_app/view/pages/product_view/review.dart';
@@ -92,13 +93,31 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
               expandedHeight: size.height * 2.7,
               flexibleSpace: Stack(children: [
                 Positioned.fill(
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: size.height * 2.15,
-                    child: Image.network(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: size.height * 2.15,
+                  child: CarouselSlider(
+                    items: photos.map((imageUrl) {
+                      return Image.network(
+                        imageUrl,
                         fit: BoxFit.fill,
-                        'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg')),
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      aspectRatio: 16 / 9,
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      enableInfiniteScroll: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      onPageChanged: (index, reason) {
+                        // keep track of current index
+                      },
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                ),
                 Positioned(
                     bottom: size.height * 2.27,
                     right: size.width * .1,

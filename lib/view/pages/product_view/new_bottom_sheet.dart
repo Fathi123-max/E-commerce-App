@@ -1,6 +1,5 @@
 // create a new widget for product details in bottom sheet
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,40 +53,17 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Center(
-                        child: CarouselSlider(
-                          items: [
-                            'https://cdn.pixabay.com/photo/2015/03/26/09/41/chain-690088_960_720.jpg',
-                            'https://cdn.pixabay.com/photo/2016/10/22/20/34/mountains-1761294_960_720.jpg',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
-                          ].map((imageUrl) {
-                            return Container(
-                              height: 90.h,
-                              width: 100.w,
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.r)),
-                                image: DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: NetworkImage(imageUrl)),
-                              ),
-                            );
-                          }).toList(),
-                          options: CarouselOptions(
-                            height: 90.h,
-                            aspectRatio: 16 / 9,
-                            autoPlay: true,
-                            enlargeCenterPage: true,
-                            enableInfiniteScroll: true,
-                            autoPlayInterval: Duration(seconds: 3),
-                            autoPlayAnimationDuration:
-                                Duration(milliseconds: 800),
-                            onPageChanged: (index, reason) {
-                              // keep track of current index
-                            },
-                            scrollDirection: Axis.horizontal,
-                          ),
-                        ),
-                      ),
+                          child: Container(
+                        height: 90.h,
+                        width: 100.w,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.r)),
+                            image: const DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg'))),
+                      )),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
