@@ -4,6 +4,7 @@ import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/view/pages/auth_view/custom_login.dart';
 import 'package:e_commerce_app/view/pages/cart_view/cart_page.dart';
 import 'package:e_commerce_app/view/pages/home_view/home_page_body.dart';
+import 'package:e_commerce_app/view/pages/more_view/more_page.dart';
 import 'package:e_commerce_app/view/pages/profile_view/profile_page8.dart';
 import 'package:e_commerce_app/view/pages/search_view/search_page.dart';
 import 'package:flutter/material.dart';
@@ -65,13 +66,13 @@ class _HomePageState extends State<HomePage> {
 
   Color? containerColor;
   List<Widget> pages = [
-    const SearchNavigator(),
     const CatogryNavigator(),
-    const HomeNavigator(),
-    const CartNavigator(),
     ProfileNavigator(
       check: false,
     ),
+    const HomeNavigator(),
+    const CartNavigator(),
+    MoreNavigator()
   ];
 
   @override
@@ -87,7 +88,13 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.abc),
+          leadingWidth: 150.w,
+          leading: Row(
+            children: [
+              Image.asset("assets/images/onemart.png"),
+              const Text("One Mart")
+            ],
+          ),
         ),
         body: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
@@ -123,13 +130,15 @@ class _HomePageState extends State<HomePage> {
             });
           },
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.category_rounded), label: 'Catogries'),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.person), label: 'perofile'),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.home), label: 'home'),
             BottomNavigationBarItem(
                 icon: Stack(children: [
-                  Icon(Icons.card_travel_rounded),
+                  const Icon(Icons.card_travel_rounded),
                   Positioned(
                       top: .5.h,
                       right: .5.h,
@@ -149,7 +158,8 @@ class _HomePageState extends State<HomePage> {
                       ))
                 ]),
                 label: 'Cart'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'perofile')
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.category_outlined), label: 'More'),
           ],
           selectedLabelStyle: const TextStyle(fontSize: 14),
           unselectedLabelStyle: const TextStyle(fontSize: 10),
@@ -256,6 +266,25 @@ class ProfileNavigator extends StatelessWidget {
     return Navigator(
       onGenerateRoute: (settings) {
         Widget page = const ProfilePage8();
+
+        return MaterialPageRoute(builder: (_) => page);
+      },
+    );
+  }
+}
+
+class MoreNavigator extends StatelessWidget {
+  MoreNavigator({
+    super.key,
+    this.check,
+  });
+  bool? check;
+
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        Widget page = const MorePage();
 
         return MaterialPageRoute(builder: (_) => page);
       },

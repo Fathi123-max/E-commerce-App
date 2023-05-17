@@ -73,7 +73,7 @@ class _ProductPhotosState extends State<ProductPhotos> {
                   key: _sliderKey,
                   items: photos,
                   options: CarouselOptions(
-                    height: 250.h,
+                    height: 200.h,
                     clipBehavior: Clip.antiAlias,
                     autoPlay: true,
                     enlargeCenterPage: false,

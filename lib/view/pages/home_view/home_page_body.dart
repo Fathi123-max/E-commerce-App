@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/view/pages/product_view/product_card_view.dart';
 import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
+import 'package:e_commerce_app/view/pages/search_view/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -46,27 +47,38 @@ class _HomePageBodyState extends State<HomePageBody> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search  product   ...',
-                        hintStyle: const TextStyle(color: Colors.grey),
-                        suffixIcon: Padding(
-                          padding: EdgeInsets.all(4.0.h),
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.black87,
-                                  borderRadius: BorderRadius.circular(5.r)),
-                              child: const Icon(
-                                Icons.search,
-                                color: Colors.white,
-                              )),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) {
+                            return SearchPage();
+                          },
+                        ));
+                        SearchPage();
+                      },
+                      child: TextField(
+                        enabled: false,
+                        decoration: InputDecoration(
+                          hintText: 'Search  product   ...',
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          suffixIcon: Padding(
+                            padding: EdgeInsets.all(4.0.h),
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.black87,
+                                    borderRadius: BorderRadius.circular(5.r)),
+                                child: const Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                )),
+                          ),
+                          border: InputBorder.none,
                         ),
-                        border: InputBorder.none,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 250.h,
+                    height: 200.h,
                     child: const ProductPhotos(images: [
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                       'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',

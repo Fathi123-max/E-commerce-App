@@ -53,50 +53,53 @@ class _SingUpPageState extends State<SingUpPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            icon: const Icon(Icons.close))
-                      ],
+                    SizedBox(
+                      height: size.height * .1,
                     ),
                     const SizedBox(),
-                    Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black.withOpacity(.7),
-                      ),
-                    ),
                     SizedBox(
-                      height: 10.h,
+                        height: 60.h,
+                        width: 80.w,
+                        child: Image.asset("assets/images/onemart.png")),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black.withOpacity(.7),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Divider(
+                      color: Colors.black,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: component1(
-                          Icons.person, 'Your full name', false, true),
+                          false, '  Enter Your full name', false, true),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: component1(Icons.email_outlined,
-                          'Enter your email', false, true),
+                      child:
+                          component1(false, '  Enter your email', false, true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child:
+                          component1(false, '  Enter Your Phone', false, true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: component1(true, "  Enter Password ", true, true),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: component1(
-                          Icons.phone_android, 'Enter your phone', false, true),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: component1(
-                          Icons.lock_outline, "Enter password ", true, true),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: component1(Icons.lock_outline,
-                          "Confirm your password", true, true),
+                          true, "  Confirm Your Password", true, true),
                     ),
                     SizedBox(
                       height: 30.h,
@@ -121,6 +124,24 @@ class _SingUpPageState extends State<SingUpPage> {
                                   msg: 'Login button pressed');
                             },
                           ),
+                        ),
+                        Text("OR"),
+                        Card(
+                          color: Colors.white,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  height: 40.h,
+                                  width: 40.w,
+                                  child: Image.asset(
+                                      "assets/images/googleicon.png")),
+                              Text("  Sign Up With Google ")
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 13.h,
                         ),
                         SizedBox(
                           height: 8.w,
@@ -179,16 +200,25 @@ class _SingUpPageState extends State<SingUpPage> {
   }
 
   Widget component1(
-      IconData icon, String hintText, bool isPassword, bool isEmail) {
+      bool? pass, String hintText, bool isPassword, bool isEmail) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.width / 8,
+      height: size.width / 7,
       width: size.width / 1.22,
-      alignment: Alignment.center,
+      alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: size.width / 30),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(.05),
-        borderRadius: BorderRadius.circular(10),
+        border: Border.all(style: BorderStyle.none),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: .2,
+            blurRadius: 2,
+            offset: const Offset(0, 3), // changes the position of the shadow
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5.r),
       ),
       child: TextField(
         style: TextStyle(color: Colors.black.withOpacity(.8)),
@@ -196,15 +226,15 @@ class _SingUpPageState extends State<SingUpPage> {
         keyboardType:
             isEmail ? TextInputType.emailAddress : TextInputType.phone,
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            color: Colors.black.withOpacity(.7),
-          ),
           border: InputBorder.none,
-          hintMaxLines: 1,
+          suffixIcon: pass == true
+              ? Icon(Icons.remove_red_eye)
+              : Container(
+                  width: .2225,
+                ),
           hintText: hintText,
           hintStyle:
-              TextStyle(fontSize: 14, color: Colors.black.withOpacity(.5)),
+              TextStyle(fontSize: 15.sp, color: Colors.black.withOpacity(.5)),
         ),
         onSubmitted: (value) {
           if (isEmail) {
