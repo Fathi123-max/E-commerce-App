@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/view/pages/privcey_view/privacy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -29,15 +30,16 @@ class _MorePageState extends State<MorePage> {
     Icons.group,
     Icons.exit_to_app
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnimationLimiter(
         child: AnimationConfiguration.staggeredList(
           position: 0,
-          delay: Duration(milliseconds: 100),
+          delay: const Duration(milliseconds: 100),
           child: SlideAnimation(
-            duration: Duration(milliseconds: 2500),
+            duration: const Duration(milliseconds: 2500),
             curve: Curves.fastLinearToSlowEaseIn,
             horizontalOffset: 30,
             verticalOffset: 300.0,
@@ -61,7 +63,14 @@ class _MorePageState extends State<MorePage> {
                       return ListTile(
                         leading: Icon(iconList[index]),
                         title: Text(titles[index]),
-                        onTap: () {},
+                        onTap: () async {
+                          await showdialog(context);
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) {
+                              return const PrivacyPage();
+                            },
+                          ));
+                        },
                       );
                     },
                   ),
@@ -73,4 +82,81 @@ class _MorePageState extends State<MorePage> {
       ),
     );
   }
+}
+
+Future<dynamic> showdialog(BuildContext context) {
+  return showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return Dialog(
+        child: Container(
+          height: 150.h,
+          width: 300.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                height: 120.h,
+                child: const Center(
+                    child: Text('Are You Sure You Want To Sign Out')),
+              ),
+              Row(
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      height: 30.h,
+                      width: 150.w,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10.r),
+                        ),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'No',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      height: 30.h,
+                      width: 150.w,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black, width: 0.1),
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(10.r),
+                        ),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Yes',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }
