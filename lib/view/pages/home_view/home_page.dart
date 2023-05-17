@@ -24,7 +24,7 @@ showSignInDialog(BuildContext context) {
             borderRadius: BorderRadius.all(Radius.circular(30))),
         child: Container(
           width: size.width * .9.w,
-          height: size.width * 1.1.h,
+          height: size.width * 1.39.h,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30)),
           ),

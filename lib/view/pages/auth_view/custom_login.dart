@@ -36,7 +36,7 @@ class _custom_loginState extends State<custom_login> {
         alignment: Alignment.center,
         child: Container(
           width: size.width * .9.w,
-          height: size.width * 1.1.h,
+          height: size.width * 1.39.h,
           decoration: BoxDecoration(
             color: AppConst.appwhiteColor,
             borderRadius: BorderRadius.circular(15),
@@ -61,17 +61,25 @@ class _custom_loginState extends State<custom_login> {
                           icon: const Icon(Icons.close))
                     ],
                   ),
-                  const SizedBox(),
-                  Text(
-                    'Sign In',
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black.withOpacity(.7),
-                    ),
-                  ),
                   SizedBox(
-                    height: 10.h,
+                      height: 60.h,
+                      width: 80.w,
+                      child: Image.asset("assets/images/onemart.png")),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black.withOpacity(.7),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Divider(
+                    color: Colors.black,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
@@ -99,9 +107,6 @@ class _custom_loginState extends State<custom_login> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: 8.h,
-                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: component2(
@@ -116,8 +121,23 @@ class _custom_loginState extends State<custom_login> {
                           },
                         ),
                       ),
+                      Text("OR"),
+                      Card(
+                        color: Colors.white,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                height: 40.h,
+                                width: 40.w,
+                                child: Image.asset(
+                                    "assets/images/googleicon.png")),
+                            Text("  Sign In With Google ")
+                          ],
+                        ),
+                      ),
                       SizedBox(
-                        height: 30.h,
+                        height: 13.h,
                       ),
                       Container(
                         width: size.width,

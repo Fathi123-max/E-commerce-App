@@ -66,6 +66,8 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
     'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
     'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
   ];
+  int _current = 0;
+  final CarouselController _controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,17 +107,49 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                       );
                     }).toList(),
                     options: CarouselOptions(
-                      aspectRatio: 16 / 9,
+                      height: size.height * .6,
+                      pageSnapping: true,
                       autoPlay: true,
-                      enlargeCenterPage: true,
+                      viewportFraction: 1,
+                      pauseAutoPlayInFiniteScroll: true,
+                      pauseAutoPlayOnManualNavigate: true,
                       enableInfiniteScroll: true,
                       autoPlayInterval: Duration(seconds: 3),
                       autoPlayAnimationDuration: Duration(milliseconds: 800),
                       onPageChanged: (index, reason) {
                         // keep track of current index
+                        setState(() {
+                          _current = index;
+                        });
                       },
                       scrollDirection: Axis.horizontal,
                     ),
+                  ),
+                ),
+                Positioned(
+                  bottom: size.height * 2.27,
+                  right: size.width * .4,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: photos.asMap().entries.map((entry) {
+                      return GestureDetector(
+                        onTap: () => _controller.animateToPage(entry.key),
+                        child: Container(
+                          width: 12.0,
+                          height: 12.0,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 4.0),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: (Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.black
+                                      : Colors.white)
+                                  .withOpacity(
+                                      _current == entry.key ? 0.9 : 0.4)),
+                        ),
+                      );
+                    }).toList(),
                   ),
                 ),
                 Positioned(
@@ -143,7 +177,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                 Positioned(
                     left: 0,
                     right: 0,
-                    bottom: size.height * .01,
+                    bottom: size.height * .05,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,

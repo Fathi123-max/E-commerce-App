@@ -35,8 +35,8 @@ class _SingUpPageState extends State<SingUpPage> {
         child: Container(
           alignment: Alignment.center,
           child: Container(
-            width: size.width * .9.w,
-            height: size.width * 1.3.h,
+            width: size.width,
+            height: size.height,
             decoration: BoxDecoration(
               color: AppConst.appwhiteColor,
               borderRadius: BorderRadius.circular(15),
