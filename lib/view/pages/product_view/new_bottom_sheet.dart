@@ -1,7 +1,10 @@
 // create a new widget for product details in bottom sheet
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../constatnt/const_color.dart';
 
 class ProductDetailsWidget extends StatefulWidget {
   const ProductDetailsWidget({Key? key}) : super(key: key);
@@ -14,8 +17,17 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
   int _quantity = 1;
   double _totalPrice = 5.0;
 
+  var color = AppConst.appwhiteColor;
+
+  var color2 = AppConst.appwhiteColor;
+  var colorl = AppConst.appwhiteColor;
+  var colorm = AppConst.appwhiteColor;
+  var colors = AppConst.appwhiteColor;
+  var colorxl = AppConst.appwhiteColor;
+
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -42,18 +54,42 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Center(
-                          child: Container(
-                        height: 90.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.r)),
-                            image: const DecorationImage(
-                                fit: BoxFit.fill,
-                                image: NetworkImage(
-                                    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg'))),
-                      )),
+                        child: CarouselSlider(
+                          items: [
+                            'https://cdn.pixabay.com/photo/2015/03/26/09/41/chain-690088_960_720.jpg',
+                            'https://cdn.pixabay.com/photo/2016/10/22/20/34/mountains-1761294_960_720.jpg',
+                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                          ].map((imageUrl) {
+                            return Container(
+                              height: 90.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10.r)),
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: NetworkImage(imageUrl)),
+                              ),
+                            );
+                          }).toList(),
+                          options: CarouselOptions(
+                            height: 90.h,
+                            aspectRatio: 16 / 9,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            enableInfiniteScroll: true,
+                            autoPlayInterval: Duration(seconds: 3),
+                            autoPlayAnimationDuration:
+                                Duration(milliseconds: 800),
+                            onPageChanged: (index, reason) {
+                              // keep track of current index
+                            },
+                            scrollDirection: Axis.horizontal,
+                          ),
+                        ),
+                      ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
                             padding: EdgeInsets.all(10.0.h),
@@ -65,6 +101,20 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                               ),
                             ),
                           ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Icon(Icons.star,
+                                    color: Colors.orange, size: 20),
+                                const Text("4.5"),
+                                SizedBox(
+                                  height: 30.h,
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -72,32 +122,99 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                   SizedBox(
                     height: 5.h,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                    ),
-                    height: 30.h,
-                    width: 100.w,
-                    child: Center(
-                        child: Text(
-                      "b 500.0 OOF",
-                      style: TextStyle(color: Colors.white),
-                    )),
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                        ),
+                        height: 30.h,
+                        width: 100.w,
+                        child: const Center(
+                            child: Text(
+                          "b 500.0 OOF",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                      ),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      const Text(
+                        "\$1500 ",
+                        style: TextStyle(),
+                      ),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      const Text(
+                        "\$1500 ",
+                        style: TextStyle(),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 5),
-                  const Text(
-                    "Available Sizes: S, M, L",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                    ),
+                  Row(
+                    children: [
+                      const Text(
+                        "Available Sizes:",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: size.width * .05,
+                          ),
+                          categoryChip("S", () {
+                            setState(() {
+                              colors = AppConst.appGreenColor;
+
+                              colorl = AppConst.appwhiteColor;
+                              colorxl = AppConst.appwhiteColor;
+                              colorm = AppConst.appwhiteColor;
+                            });
+                          }, colors, Colors.black),
+                          SizedBox(
+                            width: size.width * .05,
+                          ),
+                          categoryChip("M", () {
+                            setState(() {
+                              colors = AppConst.appwhiteColor;
+
+                              colorl = AppConst.appwhiteColor;
+                              colorxl = AppConst.appwhiteColor;
+                              colorm = AppConst.appGreenColor;
+                            });
+                          }, colorm, Colors.black),
+                          SizedBox(
+                            width: size.width * .05,
+                          ),
+                          categoryChip("L", () {
+                            setState(() {
+                              colors = AppConst.appwhiteColor;
+
+                              colorl = AppConst.appGreenColor;
+                              colorxl = AppConst.appwhiteColor;
+                              colorm = AppConst.appwhiteColor;
+                            });
+                          }, colorl, Colors.black),
+                        ],
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      IconButton(
-                        onPressed: () {
+                      Text("Quantity"),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      GestureDetector(
+                        onTap: () {
                           setState(() {
                             if (_quantity > 1) {
                               _quantity--;
@@ -105,47 +222,51 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                             }
                           });
                         },
-                        icon: const Icon(Icons.remove),
-                        padding: EdgeInsets.zero,
+                        child: Container(
+                            height: 25.h,
+                            width: 25.h,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color:
+                                      Colors.black, // set the border color here
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(30.r)),
+                            child: const Icon(Icons.remove)),
                       ),
                       const SizedBox(width: 10),
                       Text("$_quantity"),
                       const SizedBox(width: 10),
-                      IconButton(
-                        onPressed: () {
+                      GestureDetector(
+                        onTap: () {
                           setState(() {
                             _quantity++;
                             _totalPrice += 5.0;
                           });
                         },
-                        icon: const Icon(Icons.add),
-                        padding: EdgeInsets.zero,
+                        child: Container(
+                            height: 25.h,
+                            width: 25.h,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color:
+                                      Colors.black, // set the border color here
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(30.r)),
+                            child: const Icon(Icons.add)),
                       ),
                       const Spacer(),
-                      Text(
-                        "\$$_totalPrice",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  const Row(
+                  SizedBox(height: 20.h),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.star, color: Colors.orange, size: 16),
-                      Icon(Icons.star, color: Colors.orange, size: 16),
-                      Icon(Icons.star, color: Colors.orange, size: 16),
-                      Icon(Icons.star, color: Colors.orange, size: 16),
-                      Icon(Icons.star, color: Colors.grey, size: 16),
-                      SizedBox(width: 5),
                       Text(
-                        "4.0 (235 ratings)",
+                        "Total Price:  \$$_totalPrice",
                         style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 14,
+                          fontSize: 16.sp,
                         ),
                       ),
                     ],
@@ -160,8 +281,8 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(5.0.r),
+                      color: Colors.blue,
                     ),
                     child: MaterialButton(
                       onPressed: () {
@@ -172,30 +293,40 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                         });
                         Navigator.pop(context);
                       },
-                      child: const Text(
-                        "Add another",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      child: SizedBox(
+                        width: size.width * .33,
+                        child: Center(
+                          child: Text(
+                            "Add  Product",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13.sp,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(5.0.r),
+                      color: Colors.green,
                     ),
                     child: MaterialButton(
                       onPressed: () {
                         // buy now
                         Navigator.pop(context);
                       },
-                      child: const Text(
-                        "Buy now",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                      child: SizedBox(
+                        width: size.width * .33,
+                        child: Center(
+                          child: Text(
+                            "Buy now",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13.sp,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -208,4 +339,19 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
       ),
     );
   }
+}
+
+Widget categoryChip(String text, var onTap, Color color, Color ColotText) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10.r),
+        border: Border.all(color: Colors.grey[300]!),
+      ),
+      child: Text(text, style: TextStyle(fontSize: 16.sp, color: ColotText)),
+    ),
+  );
 }
