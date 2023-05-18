@@ -87,15 +87,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          leadingWidth: 150.w,
-          leading: Row(
-            children: [
-              Image.asset("assets/images/onemart.png"),
-              const Text("One Mart")
-            ],
-          ),
-        ),
         body: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
           child: pages[selectedIndex],

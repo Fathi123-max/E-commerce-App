@@ -40,6 +40,15 @@ class _HomePageBodyState extends State<HomePageBody> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
+                    height: 50.h,
+                    child: Row(
+                      children: [
+                        Image.asset("assets/images/onemart.png"),
+                        const Text("One Mart")
+                      ],
+                    ),
+                  ),
+                  Container(
                     margin: const EdgeInsets.all(16),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     decoration: BoxDecoration(
@@ -54,7 +63,6 @@ class _HomePageBodyState extends State<HomePageBody> {
                             return SearchPage();
                           },
                         ));
-                        SearchPage();
                       },
                       child: TextField(
                         enabled: false,
@@ -99,14 +107,21 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ),
                       const Spacer(),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.h),
                         child: Text(
-                          "View All ->",
+                          "View All",
                           style: TextStyle(
                               color: Colors.green,
                               fontSize: 17.sp,
                               fontWeight: FontWeight.bold),
                         ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        size: 20.h,
+                        color: Colors.green,
+                      ),
+                      SizedBox(
+                        width: 10.w,
                       )
                     ],
                   ),
@@ -159,14 +174,21 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ),
                       const Spacer(),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.h),
                         child: Text(
-                          "View All ->",
+                          "View All",
                           style: TextStyle(
                               color: Colors.green,
                               fontSize: 17.sp,
                               fontWeight: FontWeight.bold),
                         ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        size: 20.h,
+                        color: Colors.green,
+                      ),
+                      SizedBox(
+                        width: 10.w,
                       )
                     ],
                   ),
@@ -201,14 +223,21 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ),
                       const Spacer(),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.h),
                         child: Text(
-                          "View All ->",
+                          "View All",
                           style: TextStyle(
                               color: Colors.green,
                               fontSize: 17.sp,
                               fontWeight: FontWeight.bold),
                         ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        size: 20.h,
+                        color: Colors.green,
+                      ),
+                      SizedBox(
+                        width: 10.w,
                       )
                     ],
                   ),

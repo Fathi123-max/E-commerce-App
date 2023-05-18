@@ -1,8 +1,8 @@
-import 'package:e_commerce_app/view/pages/product_view/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constatnt/const_color.dart';
+import 'new_product_view.dart';
 
 class ProductWidget extends StatefulWidget {
   final String imageUrl;
@@ -28,8 +28,8 @@ class _ProductWidgetState extends State<ProductWidget> {
 
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const ProductPage8()));
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const product_new()));
       },
       child: Stack(
         children: [

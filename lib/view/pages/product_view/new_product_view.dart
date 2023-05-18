@@ -32,19 +32,19 @@ class AppBarApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const SliverAppBarExample(),
+      child: const product_new(),
     );
   }
 }
 
-class SliverAppBarExample extends StatefulWidget {
-  const SliverAppBarExample({super.key});
+class product_new extends StatefulWidget {
+  const product_new({super.key});
 
   @override
-  State<SliverAppBarExample> createState() => _SliverAppBarExampleState();
+  State<product_new> createState() => _product_newState();
 }
 
-class _SliverAppBarExampleState extends State<SliverAppBarExample> {
+class _product_newState extends State<product_new> {
 // [SliverAppBar]s are typically used in [CustomScrollView.slivers], which in
 // turn can be placed in a [Scaffold.body].
 
@@ -88,6 +88,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
+              automaticallyImplyLeading: false,
               pinned: _pinned,
               snap: _snap,
               backgroundColor: Colors.white,
@@ -128,7 +129,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                 ),
                 Positioned(
                   bottom: size.height * 2.27,
-                  right: size.width * .4,
+                  right: size.width * .45,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: photos.asMap().entries.map((entry) {
@@ -565,7 +566,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
         ),
         bottomNavigationBar: BottomAppBar(
           color: Colors
-              .white70, // Changes the background color of the BottomAppBar
+              .white, // Changes the background color of the BottomAppBar to white
           elevation: 10, // Adds shadow to the BottomAppBar
           shape:
               const CircularNotchedRectangle(), // Makes the BottomAppBar circular and notched
@@ -581,12 +582,20 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> {
                 ),
                 const Spacer(),
                 OutlinedButton(
-                    onPressed: () {
-                      setState(() {
-                        showButtomSheet(context);
-                      });
-                    },
-                    child: const Text("Add to Cart"))
+                  style: ButtonStyle(
+                    side: MaterialStateProperty.all(
+                        BorderSide(color: Colors.green)),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      showButtomSheet(context);
+                    });
+                  },
+                  child: const Text(
+                    "Add to Cart",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                )
               ],
             ),
           ),
