@@ -19,17 +19,24 @@ class OrderSuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Icon(Icons.arrow_back_ios)),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 140.h,
+              height: 115.h,
               width: 100.w,
               child: Lottie.network(
                   'https://assets9.lottiefiles.com/private_files/lf30_zjkforca.json'),
             ),
-            const SizedBox(height: 24.0),
+            SizedBox(height: 15.0.h),
             Text(
               "Order Successfully!",
               style: TextStyle(
@@ -58,7 +65,7 @@ class OrderSuccessPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24.0),
+            SizedBox(height: 15.0.h),
             Container(
               padding: const EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width * 0.9,
@@ -137,7 +144,7 @@ class OrderSuccessPage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 24.0),
+            SizedBox(height: 15.0.h),
             ElevatedButton(
               onPressed: () {
                 // navigate back to home screen

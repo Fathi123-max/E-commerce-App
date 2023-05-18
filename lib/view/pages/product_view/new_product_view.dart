@@ -79,9 +79,36 @@ class _product_newState extends State<product_new> {
             heroTag: null,
             child: Stack(
               children: [
-                FloatingActionButton(
-                  onPressed: () {},
-                  child: const Icon(Icons.shopping_cart),
+                Container(
+                  width: 56.w,
+                  height: 56.h,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(15.r),
+                  ),
+                  child: Icon(
+                    Icons.shopping_basket,
+                    color: Colors.white,
+                    size: 25.h,
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: 15.h,
+                    width: 15.h,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(50.r),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "1",
+                        style: TextStyle(fontSize: 8.sp, color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             )),
@@ -128,8 +155,10 @@ class _product_newState extends State<product_new> {
                   ),
                 ),
                 Positioned(
-                  bottom: size.height * 2.27,
-                  right: size.width * .45,
+                  bottom: _isContainerVisible
+                      ? size.height * 2.32
+                      : size.height * 2.27,
+                  right: size.width * .40,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: photos.asMap().entries.map((entry) {
@@ -154,7 +183,9 @@ class _product_newState extends State<product_new> {
                   ),
                 ),
                 Positioned(
-                    bottom: size.height * 2.27,
+                    bottom: _isContainerVisible
+                        ? size.height * 2.32
+                        : size.height * 2.27,
                     right: size.width * .1,
                     child: Container(
                       height: 40,
@@ -165,7 +196,9 @@ class _product_newState extends State<product_new> {
                       child: const Icon(Icons.favorite),
                     )),
                 Positioned(
-                    bottom: size.height * 2.27,
+                    bottom: _isContainerVisible
+                        ? size.height * 2.32
+                        : size.height * 2.27,
                     left: size.width * .1,
                     child: Container(
                       height: 40,
@@ -217,7 +250,7 @@ class _product_newState extends State<product_new> {
                                     decoration: BoxDecoration(
                                         color: AppConst.appGreenColor,
                                         borderRadius:
-                                            BorderRadius.circular(20)),
+                                            BorderRadius.circular(20.r)),
                                     child: Padding(
                                       padding: const EdgeInsets.all(3.0),
                                       child: Wrap(
@@ -231,10 +264,10 @@ class _product_newState extends State<product_new> {
                                           SizedBox(
                                             width: size.width * .06,
                                           ),
-                                          const Text(
+                                          Text(
                                             "4.8",
                                             style: TextStyle(
-                                                fontSize: 10,
+                                                fontSize: 10.sp,
                                                 color: Colors.white),
                                           )
                                         ],
@@ -260,8 +293,7 @@ class _product_newState extends State<product_new> {
                               ],
                             ),
                           ),
-                          const Divider(),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 15.h),
                           Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),
