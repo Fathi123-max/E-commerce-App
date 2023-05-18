@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   bool showUnselectedLabels = true;
 
   Color selectedColor = AppConst.appGreenColor;
-  Color unselectedColor = AppConst.appMainColor200;
+  Color unselectedColor = AppConst.appGreenColor;
 
   Color? containerColor;
   List<Widget> pages = [
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.home), label: 'home'),
             BottomNavigationBarItem(
                 icon: Stack(children: [
-                  const Icon(Icons.card_travel_rounded),
+                  const Icon(Icons.card_travel_sharp),
                   Positioned(
                       top: .5.h,
                       right: .5.h,
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                 ]),
                 label: 'Cart'),
             const BottomNavigationBarItem(
-                icon: Icon(Icons.category_outlined), label: 'More'),
+                icon: Icon(Icons.view_list), label: 'More'),
           ],
           selectedLabelStyle: const TextStyle(fontSize: 14),
           unselectedLabelStyle: const TextStyle(fontSize: 10),

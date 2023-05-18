@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
+import 'package:e_commerce_app/view/pages/catogry_view/photos_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,7 +45,7 @@ class _CatogryPageState extends State<CatogryPage> {
             children: [
               SizedBox(
                 height: 300.h,
-                child: const ProductPhotos(images: [
+                child: const ProductPhotoscat(images: [
                   'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
                   'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
                   'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
