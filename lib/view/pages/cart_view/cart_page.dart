@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../../constatnt/const_color.dart';
+import 'order_scdess_page.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -100,9 +101,18 @@ class _CartPageState extends State<CartPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // TODO: Implement checkout functionality
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => OrderSuccessPage(
+                                deliveryDate: "25/6",
+                                orderNumber: "25500",
+                                paymentMethod: "Cash",
+                                shippingAddress: "alMattar",
+                              )));
                     },
-                    child: const Text('Checkout'),
+                    child: const Text(
+                      'Checkout',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ],
               ),

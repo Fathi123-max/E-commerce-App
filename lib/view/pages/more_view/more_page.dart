@@ -46,7 +46,7 @@ class _MorePageState extends State<MorePage> {
             child: Column(
               children: [
                 Container(
-                  height: 219.3.h,
+                  height: 268.h,
                 ),
                 Container(
                   height: 345.h,
@@ -111,9 +111,12 @@ Future<dynamic> showdialog(BuildContext context) {
               Row(
                 children: [
                   GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
                     child: Container(
                       height: 30.h,
-                      width: 150.w,
+                      width: 140.w,
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.only(
@@ -131,9 +134,12 @@ Future<dynamic> showdialog(BuildContext context) {
                     ),
                   ),
                   GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
                     child: Container(
                       height: 30.h,
-                      width: 150.w,
+                      width: 140.w,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(color: Colors.black, width: 0.1),
