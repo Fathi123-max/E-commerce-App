@@ -61,7 +61,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                       ),
                       image: const DecorationImage(
                         image: NetworkImage(
-                            "https://cdn.pixabay.com/photo/2018/04/17/23/10/nature-3329096_960_720.jpg"),
+                            "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80"),
                         fit: BoxFit.cover,
                       ),
                     ),

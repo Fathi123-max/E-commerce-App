@@ -14,7 +14,7 @@ class FavoritePage extends StatelessWidget {
             child: Card(
               child: ListTile(
                 leading: Image.network(
-                  'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                  'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                   height: 50,
                   width: 50,
                   fit: BoxFit.cover,

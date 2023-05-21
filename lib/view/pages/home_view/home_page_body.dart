@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:e_commerce_app/constatnt/const_color.dart';
 import 'package:e_commerce_app/view/pages/product_view/product_card_view.dart';
 import 'package:e_commerce_app/view/pages/product_view/product_photos.dart';
 import 'package:e_commerce_app/view/pages/search_view/search_page.dart';
@@ -60,7 +62,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) {
-                            return SearchPage();
+                            return const SearchPage();
                           },
                         ));
                       },
@@ -68,12 +70,13 @@ class _HomePageBodyState extends State<HomePageBody> {
                         enabled: false,
                         decoration: InputDecoration(
                           hintText: 'Search  product   ...',
-                          hintStyle: const TextStyle(color: Colors.grey),
+                          hintStyle: const TextStyle(
+                              color: Color.fromARGB(255, 190, 169, 169)),
                           suffixIcon: Padding(
                             padding: EdgeInsets.all(4.0.h),
                             child: Container(
                                 decoration: BoxDecoration(
-                                    color: Colors.black87,
+                                    color: AppConst.appGreenColor,
                                     borderRadius: BorderRadius.circular(5.r)),
                                 child: const Icon(
                                   Icons.search,
@@ -88,9 +91,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                   SizedBox(
                     height: 200.h,
                     child: const ProductPhotos(images: [
-                      'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
-                      'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
-                      'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
+                      'https://images.pexels.com/photos/5872364/pexels-photo-5872364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                      'https://images.pexels.com/photos/5632400/pexels-photo-5632400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                      'https://images.pexels.com/photos/5872364/pexels-photo-5872364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                     ], thumb: false),
                   ),
                   SizedBox(height: 10.h),
@@ -106,13 +109,16 @@ class _HomePageBodyState extends State<HomePageBody> {
                         ),
                       ),
                       const Spacer(),
-                      Container(
-                        child: Text(
-                          "View All",
-                          style: TextStyle(
-                              color: Colors.green,
-                              fontSize: 17.sp,
-                              fontWeight: FontWeight.bold),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          child: Text(
+                            "View All",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                       Icon(
@@ -135,27 +141,27 @@ class _HomePageBodyState extends State<HomePageBody> {
                       children: [
                         _buildCategoryItem(
                             'Clothing',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
                             context),
                         _buildCategoryItem(
                             'Shoes',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=799&q=80',
                             context),
                         _buildCategoryItem(
                             'Accessories',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                            'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60',
                             context),
                         _buildCategoryItem(
                             'Electronics',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                            'https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60',
                             context),
                         _buildCategoryItem(
                             'Home',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                            'https://plus.unsplash.com/premium_photo-1675896041816-4154315d12e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60',
                             context),
                         _buildCategoryItem(
                             'Beauty',
-                            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60',
                             context),
                       ],
                     ),
@@ -201,7 +207,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       itemBuilder: (BuildContext context, int index) {
                         return const ProductWidget(
                           imageUrl:
-                              '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                              'https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80',
                           price: 49.99,
                           brand: '',
                           name: 'Product 1',
@@ -250,7 +256,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       itemBuilder: (BuildContext context, int index) {
                         return const ProductWidget(
                           imageUrl:
-                              '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                              'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                           price: 49.99,
                           brand: '',
                           name: 'Product 1',
@@ -282,19 +288,19 @@ class _HomePageBodyState extends State<HomePageBody> {
                     shrinkWrap: true,
                     itemCount: 20,
                     itemBuilder: (context, index) {
-                      return Row(
+                      return const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ProductWidget(
                             imageUrl:
-                                '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
                             price: 49.99,
                             brand: '',
                             name: 'Product 1',
                           ),
                           ProductWidget(
                             imageUrl:
-                                '"https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg"',
+                                'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                             price: 39.99,
                             brand: '',
                             name: 'Product 2',
@@ -313,28 +319,38 @@ class _HomePageBodyState extends State<HomePageBody> {
 
 Widget _buildCategoryItem(String title, String image, BuildContext context) {
   return GestureDetector(
-    onTap: () {
-      Navigator.pushNamed(context, 'CatogryPage');
-    },
-    child: Container(
-      margin: EdgeInsets.all(5.r),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.r),
-        image: DecorationImage(
-          image: NetworkImage(image),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Container(
-        padding: EdgeInsets.all(10.r),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.r),
-          color: Colors.black.withOpacity(0.5),
-        ),
-        child: Center(child: Column()),
-      ),
-    ),
-  );
+      onTap: () {
+        Navigator.pushNamed(context, 'CatogryPage');
+      },
+      child: Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.all(5.r),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+          ),
+          Positioned(
+            top: 5.h,
+            right: 5.w,
+            left: 5.w,
+            bottom: 20.h,
+            child: Container(
+              height: 200.h,
+              width: 150.w,
+              margin: EdgeInsets.all(5.r),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(image),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: AppConst.appGreenColor),
+            ),
+          ),
+          Align(alignment: Alignment.bottomCenter, child: AutoSizeText(title))
+        ],
+      ));
 }
 
 
@@ -393,7 +409,7 @@ class HomePageBody extends StatelessWidget {
       children: [
         CarouselSlider(
           items: [
-            'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+            'https://img.freepik.com/free-psd/new-collection-sneakers-social-media-template_505751-3250.jpg?w=740&t=st=1684493847~exp=1684494447~hmac=11efcc12fe38d467d7b796bedb3e45d3c6d8b10ec562b50668d6fa7bd566e106',
             'https://via.placeholder.com/150/FF0000',
             'https://via.placeholder.com/150/0000FF',
           ].map((url) {
@@ -466,7 +482,7 @@ class HomePageBody extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                        'https://img.freepik.com/free-psd/new-collection-sneakers-social-media-template_505751-3250.jpg?w=740&t=st=1684493847~exp=1684494447~hmac=11efcc12fe38d467d7b796bedb3e45d3c6d8b10ec562b50668d6fa7bd566e106',
                         height: MediaQuery.of(context).size.width * 0.25,
                         width: MediaQuery.of(context).size.width * 0.25,
                         fit: BoxFit.cover,
@@ -610,7 +626,7 @@ class HomePageBody extends StatelessWidget {
                         topRight: Radius.circular(16.0),
                       ),
                       child: Image.network(
-                        'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                        'https://img.freepik.com/free-psd/new-collection-sneakers-social-media-template_505751-3250.jpg?w=740&t=st=1684493847~exp=1684494447~hmac=11efcc12fe38d467d7b796bedb3e45d3c6d8b10ec562b50668d6fa7bd566e106',
                         height: MediaQuery.of(context).size.width * 0.4,
                         fit: BoxFit.cover,
                       ),

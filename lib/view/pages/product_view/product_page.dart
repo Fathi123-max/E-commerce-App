@@ -47,9 +47,9 @@ class _ProductPage8State extends State<ProductPage8>
   bool _isContainerVisible = false;
 
   List photos = [
-    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
-    'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
-    'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
+    'https://img.freepik.com/free-psd/new-collection-sneakers-social-media-template_505751-3250.jpg?w=740&t=st=1684493847~exp=1684494447~hmac=11efcc12fe38d467d7b796bedb3e45d3c6d8b10ec562b50668d6fa7bd566e106',
+    'https://img.freepik.com/free-psd/circle-discount-sale-podium_35913-2513.jpg?w=740&t=st=1684493873~exp=1684494473~hmac=b2bd4a3f7d5608a5e97c3ef34fa046e94d1436ebd64d8f0ba02f044f79e89a9d',
+    'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
   ];
 
   var color = AppConst.appwhiteColor;
@@ -106,9 +106,9 @@ class _ProductPage8State extends State<ProductPage8>
                   height: 360.h,
                   child: const ProductPhotos(
                     images: [
-                      'https://cdn.pixabay.com/photo/2018/03/11/12/15/raindrops-3216609_960_720.jpg',
-                      'https://cdn.pixabay.com/photo/2017/12/20/03/46/city-3029160_960_720.jpg',
-                      'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg',
+                      'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
+                      'https://img.freepik.com/free-psd/circle-discount-sale-podium_35913-2513.jpg?w=740&t=st=1684493873~exp=1684494473~hmac=b2bd4a3f7d5608a5e97c3ef34fa046e94d1436ebd64d8f0ba02f044f79e89a9d',
+                      'https://img.freepik.com/free-psd/new-collection-sneakers-social-media-template_505751-3250.jpg?w=740&t=st=1684493847~exp=1684494447~hmac=11efcc12fe38d467d7b796bedb3e45d3c6d8b10ec562b50668d6fa7bd566e106',
                     ],
                     thumb: true,
                   ),
@@ -436,7 +436,7 @@ class _ProductPage8State extends State<ProductPage8>
                         const Expanded(
                           child: ProductWidget(
                             imageUrl:
-                                'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                             price: 39.99,
                             brand: '',
                             name: 'Product 1',
@@ -446,7 +446,7 @@ class _ProductPage8State extends State<ProductPage8>
                         const Expanded(
                           child: ProductWidget(
                             imageUrl:
-                                'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                             price: 39.99,
                             brand: '',
                             name: 'Product 2',
@@ -460,7 +460,7 @@ class _ProductPage8State extends State<ProductPage8>
                         const Expanded(
                           child: ProductWidget(
                             imageUrl:
-                                'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                             price: 39.99,
                             brand: '',
                             name: 'Product 3',
@@ -470,7 +470,7 @@ class _ProductPage8State extends State<ProductPage8>
                         const Expanded(
                           child: ProductWidget(
                             imageUrl:
-                                'https://cdn.pixabay.com/photo/2023/03/31/15/04/cloud-7890229_960_720.jpg',
+                                'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b',
                             price: 39.99,
                             brand: '',
                             name: 'Product 4',

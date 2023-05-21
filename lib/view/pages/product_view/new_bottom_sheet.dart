@@ -62,7 +62,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                             image: const DecorationImage(
                                 fit: BoxFit.fill,
                                 image: NetworkImage(
-                                    'https://cdn.pixabay.com/photo/2019/03/03/21/59/landscape-4032951_960_720.jpg'))),
+                                    'https://img.freepik.com/free-psd/new-collection-sneakers-social-media-template_505751-3250.jpg?w=740&t=st=1684493847~exp=1684494447~hmac=11efcc12fe38d467d7b796bedb3e45d3c6d8b10ec562b50668d6fa7bd566e106'))),
                       )),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
