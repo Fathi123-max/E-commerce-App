@@ -18,34 +18,34 @@ class ListOfCatogry extends StatelessWidget {
           itemCount: 20,
           itemBuilder: (BuildContext c, int i) {
             return AnimationConfiguration.staggeredList(
-              position: i,
-              delay: const Duration(milliseconds: 100),
-              child: SlideAnimation(
-                duration: const Duration(milliseconds: 2500),
-                curve: Curves.fastLinearToSlowEaseIn,
-                horizontalOffset: 30,
-                verticalOffset: 300.0,
-                child: Container(
-                  margin: EdgeInsets.only(bottom: w / 20),
-                  height: w / 3,
-                  decoration: BoxDecoration(
-                    color: AppConst.appwhiteColor,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 40,
-                        spreadRadius: 10,
-                      ),
-                    ],
-                  ),
-                  child: _buildCategoryItem(context, 'Clothing',
-                      'https://img.freepik.com/free-psd/black-friday-super-sale-social-media-banner-template_106176-1471.jpg?w=740&t=st=1684493764~exp=1684494364~hmac=5fb1cbaba55557358065837d3370f60e931b7ab29cda27be8dc85a1105e9a95b'),
-                ),
-              ),
-            );
+                position: i,
+                delay: const Duration(milliseconds: 100),
+                child: SlideAnimation(
+                    duration: const Duration(milliseconds: 2500),
+                    curve: Curves.fastLinearToSlowEaseIn,
+                    horizontalOffset: 30,
+                    verticalOffset: 300.0,
+                    child: Container(
+                        margin: EdgeInsets.only(bottom: w / 20),
+                        height: w / 3,
+                        decoration: BoxDecoration(
+                          color: AppConst.appwhiteColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 40,
+                              spreadRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: _buildCategoryItem(
+                          context,
+                          'Clothing',
+                          'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=799&q=80',
+                        ))));
           },
         ),
       ),
